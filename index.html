@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victor's Portfolio | Web Developer & Designer</title>
+    <title>Dr. Smith's Medical Practice | Quality Healthcare Services</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="navbar">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">Victor's Portfolio</a>
+            <a href="#home" class="nav-logo">Dr. Smith's <span>Medical Practice</span></a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#resume">Resume</a></li>
+                <li><a href="#about">About Dr. Smith</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#patient-info">Patient Info</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li class="appointment-btn"><a href="#appointment">Book Appointment</a></li>
             </ul>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -28,16 +30,12 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>Hi, I'm <span class="highlight">Victor Musyoka</span></h1>
-                    <p class="tagline">Web Developer, Designer, Data Scientist & Digital Analyst</p>
-                    <div class="button-group">
-                        <a href="#contact" class="cta-button">Get In Touch <i class="fas fa-paper-plane"></i></a>
-                        <a href="#projects" class="cta-button secondary-button">View My Work</a>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://linkedin.com/in/victor-musyoka" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <h1 class="fade-up">Dr. Said Hussein Ali</h1>
+                    <p class="fade-up" style="--delay: 0.2s">Periodontology & Implantology Specialist</p>
+                    <p class="fade-up" style="--delay: 0.4s">Providing advanced dental care with expertise in dental implants and periodontal treatments</p>
+                    <div class="cta-buttons fade-up" style="--delay: 0.6s">
+                        <a href="#appointment" class="btn btn-primary">Book Appointment</a>
+                        <a href="tel:+254703553000" class="btn btn-outline">Call Now: +254 703 553 000</a>
                     </div>
                 </div>
             </div>
@@ -47,187 +45,152 @@
             </div>
         </section>
 
+        <section id="testimonials" class="section">
+            <div class="container">
+                <h2 class="section-title">Patient Testimonials</h2>
+                <p class="section-subtitle">What my patients say about their experience</p>
+                
+                <div class="testimonials-slider">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"Dr. Ali performed my dental implant procedure with exceptional skill and care. His attention to detail and gentle approach made the entire process comfortable. I couldn't be happier with the results!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>James K.</h4>
+                                <span>Dental Implant Patient</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"After struggling with gum disease for years, Dr. Ali's periodontal treatment has given me my oral health back. His expertise and compassionate care are truly remarkable. Highly recommended!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Fatuma A.</h4>
+                                <span>Periodontal Patient</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"Dr. Said is an outstanding professional. He took the time to explain every step of my treatment plan and made sure I was comfortable throughout the procedure. The results exceeded my expectations."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Michael N.</h4>
+                                <span>Cosmetic Dentistry Patient</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="about" class="section">
-            <h2>About Me</h2>
-            <div class="about-container">
+            <div class="container">
+                <h2 class="section-title">About Dr. Said</h2>
                 <div class="about-content">
-                    <div class="left-column">
-                        <div class="profile-section">
-                            <div class="profile-photo">
-                                <img src="profile.jpg" alt="Victor Musyoka">
-                                <div class="profile-overlay"></div>
-                            </div>
-                        </div>
+                    <div class="about-image fade-left">
+                        <img src="doctor.jpg" alt="Dr. Said Hussein Ali" class="doctor-img">
+                    </div>
+                    <div class="about-text fade-right">
+                        <h3>Professional Summary</h3>
+                        <p>Dedicated Periodontist and Implantologist with extensive experience in dental implants, periodontal treatments, and emergency dental care. Committed to providing exceptional patient care using the latest techniques and technologies in modern dentistry.</p>
                         
-                        <div class="professional-summary ml-ai">
-                            <div class="summary-icon">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <div class="summary-content">
-                                <h3>Machine Learning & Data Science</h3>
-                                <p>Passionate about leveraging data to build intelligent solutions, I develop machine learning models that solve complex problems and extract valuable insights. My experience spans from data preprocessing to deployment, with a keen interest in deep learning applications using PyTorch for innovative AI solutions.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="right-column">
-                        <div class="professional-summary web-dev">
-                            <div class="summary-icon">
-                                <i class="fas fa-laptop-code"></i>
-                            </div>
-                            <div class="summary-content">
-                                <h3>Web Design & Development</h3>
-                                <p>I specialize in creating responsive, user-centric web experiences that combine aesthetic appeal with seamless functionality. With expertise in modern frontend technologies including HTML5, CSS3, and JavaScript frameworks, I craft websites that not only look stunning but also deliver exceptional performance across all devices.</p>
-                            </div>
-                        </div>
+                        <h3>Education</h3>
+                        <ul class="education-list">
+                            <li>Master of Dental Surgery in Periodontology and Implantology - University of Nairobi (2021-2025)</li>
+                            <li>Fellowship in Oral Implantology - German Board of Oral Implantology (2016-2018)</li>
+                            <li>Bachelor of Dental Surgery (BDS) - Elrazi University of Khartoum, Sudan (2011-2016)</li>
+                            <li>Dental Office Safety Course - OSHA Academy (2018)</li>
+                        </ul>
                         
-                        <div class="personal-note">
-                            <i class="fas fa-lightbulb"></i>
-                            <p>When I'm not immersed in code or data, you can find me exploring the latest tech trends, contributing to open-source projects, or enjoying outdoor activities that help me maintain a healthy work-life balance.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="section">
-            <h2>My Skills</h2>
-            <div class="skills-container">
-                <div class="skill" data-skill="html">
-                    <i class="fab fa-html5"></i>
-                    <h3>HTML5</h3>
-                </div>
-                <div class="skill" data-skill="css">
-                    <i class="fab fa-css3-alt"></i>
-                    <h3>CSS3</h3>
-                </div>
-                <div class="skill" data-skill="js">
-                    <i class="fab fa-js"></i>
-                    <h3>JavaScript</h3>
-                </div>
-                <div class="skill" data-skill="typescript">
-                    <i class="fas fa-code"></i>
-                    <h3>TypeScript</h3>
-                </div>
-                <div class="skill" data-skill="node">
-                    <i class="fab fa-node-js"></i>
-                    <h3>Node.js</h3>
-                </div>
-                <div class="skill" data-skill="vite">
-                    <i class="fas fa-bolt"></i>
-                    <h3>Vite</h3>
-                </div>
-                <div class="skill" data-skill="python">
-                    <i class="fab fa-python"></i>
-                    <h3>Python</h3>
-                </div>
-                <div class="skill" data-skill="pytorch">
-                    <i class="fas fa-brain"></i>
-                    <h3>PyTorch</h3>
-                </div>
-                <div class="skill" data-skill="pycharm">
-                    <i class="fas fa-jet-fighter"></i>
-                    <h3>PyCharm</h3>
-                </div>
-                <div class="skill" data-skill="matlab">
-                    <i class="fas fa-calculator"></i>
-                    <h3>MATLAB</h3>
-                </div>
-                <div class="skill" data-skill="mysql">
-                    <i class="fas fa-database"></i>
-                    <h3>MySQL</h3>
-                </div>
-                <div class="skill" data-skill="powerbi">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Power BI</h3>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="section">
-            <h2>My Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Project 1</h3>
-                    <p>Description of project 1</p>
-                    <a href="#" class="project-link">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>Project 2</h3>
-                    <p>Description of project 2</p>
-                    <a href="#" class="project-link">View Project</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="resume" class="section">
-            <h2>My Resume</h2>
-            <div class="resume-container">
-                <div class="resume-header">
-                    <h1>Victor Musyoka Muteti</h1>
-                    <p>victormusyoka003@gmail.com | +254 113064648 | Nairobi, Kenya</p>
-                    <p>LinkedIn: <a href="http://linkedin.com/in/victor-musyoka" target="_blank">linkedin.com/in/victor-musyoka</a></p>
-                </div>
-                
-                <div class="resume-section">
-                    <h3>Professional Summary</h3>
-                    <p>Results-driven Digital Marketing Specialist and Full-Stack Developer with over 3 years of experience in building digital solutions and executing data-driven marketing strategies. Expertise in SEO, content marketing, paid media, and conversion optimization, combined with strong technical skills in web development, automation, and data analysis. Proven track record of developing high-performance websites, implementing marketing technology stacks, and creating data pipelines that drive business growth. Proficient in modern web technologies, marketing automation tools, and analytics platforms. Passionate about bridging the gap between marketing and technology to deliver seamless digital experiences, optimize performance, and drive measurable business outcomes.</p>
-                </div>
-                
-                <div class="resume-section">
-                    <h3>Core Competencies</h3>
-                    <ul class="skills-grid">
-                        <li>Web Development (HTML/CSS, JavaScript)</li>
-                        <li>WordPress Development</li>
-                        <li>Digital Marketing Strategy & Execution</li>
-                        <li>SEO, SEM & Google Ads</li>
-                        <li>Data Analysis & Visualization</li>
-                        <li>Paid Media Buying & Retargeting</li>
-                        <li>Social Media Growth & Campaigns</li>
-                        <li>Content Creation (Static & Video)</li>
-                        <li>Conversion Rate Optimization</li>
-                        <li>Analytics Tools (GA4, Meta Insights, Power BI)</li>
-                    </ul>
-                </div>
-                
-                <div class="resume-section">
-                    <h3>Professional Experience</h3>
-                    
-                    <div class="experience-item">
-                        <h4>Digital Marketing Executive & Web Developer</h4>
-                        <p class="company">Implant & Aesthetic Medical Center | Jan 2025 – Present</p>
-                        <ul>
-                            <li>Converted 30+ patients in the first 2 months, contributing over KES 8 million in revenue</li>
-                            <li>Designed and managed clinic website (UI/UX improvements, SEO, and blog integration)</li>
-                            <li>Executed paid ad campaigns with 5X ROAS, improved organic traffic by 75% through SEO and content marketing</li>
+                        <h3>Professional Affiliations</h3>
+                        <ul class="affiliations-list">
+                            <li>Member, German Association of Dental Implantology</li>
                         </ul>
+                        
+                        <h3>Languages</h3>
+                        <p>English, Arabic, and Somali</p>
                     </div>
-                    
-                    <div class="experience-item">
-                        <h4>Digital Marketing/SMM Strategist</h4>
-                        <p class="company">Madfun Xperience | Jan 2025 – Feb 2025</p>
-                        <ul>
-                            <li>Doubled Instagram followers from 6K to 12K and achieved over 3 million profile views in one month</li>
-                            <li>Directed viral campaigns and influencer collaborations targeting Gen Z and youth engagement</li>
-                            <li>Increased ticket sales by 60% through strategic content bursts and audience retargeting</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Additional experience items would go here -->
-                    
                 </div>
-                
-                <div class="resume-actions">
-                    <a href="#" class="cta-button">Download Full Resume (PDF)</a>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <h2>Our Services</h2>
+            <p class="section-subtitle">Comprehensive dental care services for all your needs</p>
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Dental Implants</h3>
+                    <p>Permanent tooth replacement solutions for a natural smile and improved oral function.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <h3>Periodontal Treatment</h3>
+                    <p>Advanced treatments for gum disease, including scaling, root planing, and gum grafting.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h3>Cosmetic Dentistry</h3>
+                    <p>Transform your smile with our range of cosmetic services, including teeth whitening, veneers, and crowns.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Emergency Dental Care</h3>
+                    <p>Urgent care for dental emergencies, including toothaches, chipped teeth, and lost fillings.</p>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="section">
-            <h2>Get In Touch</h2>
+            <h2>Contact Us</h2>
+            <p class="section-subtitle">Get in touch with us for any questions or concerns</p>
             <div class="contact-container">
                 <div class="contact-info">
-                    <p><i class="fas fa-envelope"></i> victormusyoka003@gmail.com</p>
+                    <div class="contact-method">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Our Location</h4>
+                            <p>123 Medical Center Drive<br>Suite 456<br>Boston, MA 02115</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>Main: (123) 456-7890<br>Fax: (123) 456-7891</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@drsmithpractice.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Office Hours</h4>
+                            <p>Monday - Friday: 8:00 AM - 5:00 PM<br>
+                            Saturday: 9:00 AM - 12:00 PM<br>
+                            Sunday: Closed</p>
+                        </div>
+                    </div>
                     <p><i class="fas fa-phone"></i> +254 113064648</p>
                     <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
                     <div class="social-links">
@@ -245,10 +208,127 @@
             </div>
         </section>
 
-        <footer>
-            <p>&copy; 2025 Your Name. All rights reserved.</p>
-        </footer>
+        <section id="appointment" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">Book an Appointment</h2>
+                <p class="section-subtitle">Schedule your dental visit with Dr. Said</p>
+                
+                <div class="appointment-container">
+                    <div class="appointment-info fade-left">
+                        <h3>Why Choose Dr. Said</h3>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> Fellowship-trained in Oral Implantology</li>
+                            <li><i class="fas fa-check-circle"></i> Member of German Association of Dental Implantology</li>
+                            <li><i class="fas fa-check-circle"></i> Extensive experience in dental implants and periodontics</li>
+                            <li><i class="fas fa-check-circle"></i> Multilingual: English, Arabic, and Somali</li>
+                            <li><i class="fas fa-check-circle"></i> Personalized and compassionate care</li>
+                        </ul>
+                        
+                        <div class="emergency-contact">
+                            <h4>Dental Emergency?</h4>
+                            <p>Call us immediately at <a href="tel:+254703553000">+254 703 553 000</a></p>
+                            <p>Emergency dental services available for existing and new patients.</p>
+                        </div>
+                        
+                        <div class="office-hours">
+                            <h4>Office Hours</h4>
+                            <ul>
+                                <li>Monday - Friday: 8:00 AM - 6:00 PM</li>
+                                <li>Saturday: 9:00 AM - 2:00 PM</li>
+                                <li>Sunday: Closed</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="appointment-form fade-right">
+                        <h3>Request an Appointment</h3>
+                        <form id="appointmentForm" action="#" method="POST">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="text" name="name" placeholder="Full Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="email" name="email" placeholder="Email Address" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="date" name="date" min="" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <select name="service" required>
+                                    <option value="" disabled selected>Select Service</option>
+                                    <option value="dental-implants">Dental Implants</option>
+                                    <option value="periodontal-treatment">Periodontal Treatment</option>
+                                    <option value="cosmetic-dentistry">Cosmetic Dentistry</option>
+                                    <option value="general-dentistry">General Dentistry</option>
+                                    <option value="emergency-care">Emergency Dental Care</option>
+                                    <option value="oral-surgery">Oral Surgery</option>
+                                    <option value="consultation">Consultation</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea name="message" placeholder="Please describe your dental concern" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="new-patient" checked>
+                                    <span class="checkmark"></span>
+                                    I am a new patient
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">Book Appointment</button>
+                            
+                            <p class="form-note">We'll contact you shortly to confirm your appointment time.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Dr. Said Hussein Ali</h3>
+                    <p>Periodontology & Implantology Specialist</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Dr. Smith</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#patient-info">Patient Info</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Medical Center Dr, Boston, MA</p>
+                    <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                    <p><i class="fas fa-envelope"></i> info@drsmithpractice.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Dr. Smith's Medical Practice. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>

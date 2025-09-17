@@ -1,15 +1,14 @@
-// IIFE to avoid global scope pollution
+// Doctor's Website - Main JavaScript
 (function() {
     // DOM Elements
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navContainer = document.querySelector('.nav-container');
     const navLinks = document.querySelector('.nav-links');
-    const allSections = document.querySelectorAll('section');
     const navLinkElements = document.querySelectorAll('.nav-links a');
-    const yearSpan = document.querySelector('footer p');
-    const contactForm = document.querySelector('.contact-form');
-    const downloadResume = document.querySelector('.resume-actions .cta-button');
+    const allSections = document.querySelectorAll('section');
     const navbar = document.querySelector('.navbar');
+    const appointmentForm = document.querySelector('.appointment-form');
+    const contactForm = document.querySelector('.contact-form');
+    const scrollIndicator = document.querySelector('.scroll-indicator');
     let lastScroll = 0;
 
     // Initialize the application
@@ -17,32 +16,40 @@
         setupMobileMenu();
         setupSmoothScrolling();
         setupStickyNav();
-        setupContactForm();
+        setupForms();
         setupScrollReveal();
         setupScrollIndicator();
         setupActiveNavLinks();
-        updateFooterYear();
-        setupResumeDownload();
+        setupAnimations();
+        setupBackToTop();
+        
+        // Update copyright year
+        const yearSpan = document.querySelector('.footer-bottom p');
+        if (yearSpan) {
+            yearSpan.textContent = yearSpan.textContent.replace('2023', new Date().getFullYear());
+        }
     }
 
     // Mobile Menu Functionality
     function setupMobileMenu() {
-        if (mobileMenuBtn && navLinks) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navLinks.classList.toggle('show');
-                mobileMenuBtn.classList.toggle('active');
-                document.body.style.overflow = document.body.style.overflow === 'hidden' ? '' : 'hidden';
+        if (!mobileMenuBtn || !navLinks) return;
+        
+        const toggleMenu = () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+            document.body.style.overflow = document.body.style.overflow === 'hidden' ? '' : 'hidden';
+        };
+        
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        
+        // Close menu when clicking on a link
+        navLinkElements.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
             });
-
-            // Close mobile menu when clicking on a link
-            navLinkElements.forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('show');
-                    mobileMenuBtn.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
-        }
+        });
     }
 
     // Smooth Scrolling for Anchor Links
@@ -175,27 +182,111 @@
 
     // Sticky Navigation on Scroll
     function setupStickyNav() {
-        if (navbar) {
-            window.addEventListener('scroll', () => {
-                const currentScroll = window.pageYOffset;
+        if (!navbar) return;
+        
+        const headerHeight = navbar.offsetHeight;
+        document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            if (currentScroll <= 0) {
+                navbar.classList.remove('scroll-up');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !navbar.classList.contains('scroll-down')) {
+                navbar.classList.remove('scroll-up');
+                navbar.classList.add('scroll-down');
+            } else if (currentScroll < lastScroll && navbar.classList.contains('scroll-down')) {
+                navbar.classList.remove('scroll-down');
+                navbar.classList.add('scroll-up');
+            }
+            
+            lastScroll = currentScroll;
+        });
+    }
+    
+    // Initialize ScrollReveal Animations
+    function setupScrollReveal() {
+        // Use Intersection Observer for scroll animations
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.fade-in, .fade-up, .fade-down, .fade-left, .fade-right');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
                 
-                // Hide/show navbar on scroll
-                if (currentScroll <= 0) {
-                    navbar.style.transform = 'translateY(0)';
-                    return;
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
                 }
-                
-                if (currentScroll > lastScroll && currentScroll > navbar.offsetHeight) {
-                    // Scrolling down
-                    navbar.style.transform = 'translateY(-100%)';
-                } else {
-                    // Scrolling up
-                    navbar.style.transform = 'translateY(0)';
-                }
-                
-                lastScroll = currentScroll;
             });
-        }
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('resize', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+        
+        // Initial check
+        animateOnScroll();
+    }
+    
+    // Scroll Indicator Functionality
+    function setupScrollIndicator() {
+        if (!scrollIndicator) return;
+        
+        // Hide scroll indicator after user starts scrolling
+        const handleScroll = () => {
+            if (window.pageYOffset > 100) {
+                scrollIndicator.style.opacity = '0';
+                scrollIndicator.style.visibility = 'hidden';
+            } else {
+                scrollIndicator.style.opacity = '1';
+                scrollIndicator.style.visibility = 'visible';
+            }
+        };
+        
+        // Initial check
+        handleScroll();
+        
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        
+        // Smooth scroll to next section on click
+        scrollIndicator.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Get the next section
+            const sections = document.querySelectorAll('section');
+            let currentSectionIndex = 0;
+            
+            // Find current section
+            for (let i = 0; i < sections.length; i++) {
+                const sectionTop = sections[i].offsetTop;
+                const sectionHeight = sections[i].offsetHeight;
+                
+                if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+                    currentSectionIndex = i;
+                    break;
+                }
+            }
+            
+            // Scroll to next section
+            const nextSection = sections[Math.min(currentSectionIndex + 1, sections.length - 1)];
+            const headerHeight = document.querySelector('.navbar').offsetHeight;
+            const scrollPosition = nextSection.offsetTop - headerHeight + 20;
+            
+            window.scrollTo({
+                top: scrollPosition,
+                behavior: 'smooth'
+            });
+        });
     }
 
     // Contact Form Submission
@@ -269,7 +360,7 @@
     // Update Footer Year
     function updateFooterYear() {
         if (yearSpan) {
-            yearSpan.textContent = `© ${new Date().getFullYear()} Victor Musyoka. All rights reserved.`;
+            yearSpan.textContent = ` Victor Musyoka. All rights reserved.`;
         }
     }
 
