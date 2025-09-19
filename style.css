@@ -279,6 +279,149 @@ p {
 
 .about-text {
     flex: 2;
+    color: #444;
+    line-height: 1.8;
+}
+
+.about-text h3 {
+    color: var(--primary-color);
+    margin: 2.5rem 0 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0f0f0;
+    font-size: 1.5rem;
+}
+
+.about-text h3:first-child {
+    margin-top: 0;
+}
+
+.about-text p {
+    margin: 1rem 0;
+}
+
+/* Personal Details Styling */
+.about-text > p:first-of-type {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.about-text a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.about-text a:hover {
+    color: var(--dark-color);
+    text-decoration: underline;
+}
+
+/* Education List Styling */
+.education-list, .affiliations-list, .workshops-list {
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    list-style-type: none;
+}
+
+.education-list li, 
+.affiliations-list li, 
+.workshops-list li {
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-left: 1.8rem;
+}
+
+.education-list li:before, 
+.affiliations-list li:before, 
+.workshops-list li:before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    line-height: 1;
+}
+
+/* Work Experience Styling */
+.experience-item {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.experience-item:last-child {
+    border-bottom: none;
+    margin-bottom: 1.5rem;
+}
+
+.experience-item h4 {
+    color: var(--dark-color);
+    margin-bottom: 0.3rem;
+    font-size: 1.2rem;
+}
+
+.company {
+    font-weight: 600;
+    color: #444;
+    margin: 0.25rem 0 0.5rem;
+    display: block;
+}
+
+.duration {
+    color: #666;
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.responsibilities {
+    margin: 0.75rem 0 0 1rem;
+    padding-left: 1rem;
+    border-left: 2px solid #e0e0e0;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* References Styling */
+.reference {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.reference h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.reference p {
+    margin: 0.4rem 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-text h3 {
+        font-size: 1.3rem;
+    }
+    
+    .experience-item {
+        margin-bottom: 2rem;
+        padding-bottom: 1.25rem;
+    }
+    
+    .reference {
+        padding: 1.25rem;
+    }
 }
 
 /* Services Section */
