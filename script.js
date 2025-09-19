@@ -3,7 +3,7 @@
     // DOM Elements
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
-    const navLinkElements = document.querySelectorAll('.nav-links a');
+    const navItems = document.querySelectorAll('.nav-links a');
     const allSections = document.querySelectorAll('section');
     const navbar = document.querySelector('.navbar');
     const appointmentForm = document.querySelector('.appointment-form');
@@ -34,21 +34,107 @@
     function setupMobileMenu() {
         if (!mobileMenuBtn || !navLinks) return;
         
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateY(-20px); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            .nav-links {
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            }
+            .nav-links.active {
+                display: flex;
+                animation: fadeIn 0.3s ease-out forwards;
+            }
+            .nav-links li {
+                opacity: 0;
+                transform: translateY(10px);
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .nav-links.active li {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .mobile-menu-btn {
+                transition: transform 0.3s ease, background-color 0.3s ease;
+            }
+            .mobile-menu-btn.active {
+                transform: rotate(90deg);
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Toggle menu function
         const toggleMenu = () => {
-            navLinks.classList.toggle('active');
+            const isOpen = navLinks.classList.toggle('active');
             mobileMenuBtn.classList.toggle('active');
-            document.body.style.overflow = document.body.style.overflow === 'hidden' ? '' : 'hidden';
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+            
+            // Animate menu items
+            if (isOpen) {
+                const navItems = navLinks.querySelectorAll('li');
+                navItems.forEach((item, index) => {
+                    item.style.transitionDelay = `${index * 0.1}s`;
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                });
+            } else {
+                const navItems = navLinks.querySelectorAll('li');
+                navItems.forEach((item, index) => {
+                    item.style.transitionDelay = '0s';
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(10px)';
+                });
+            }
         };
         
-        mobileMenuBtn.addEventListener('click', toggleMenu);
+        // Toggle menu on button click
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
         
         // Close menu when clicking on a link
-        navLinkElements.forEach(link => {
+        document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 if (navLinks.classList.contains('active')) {
                     toggleMenu();
                 }
             });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-container') && navLinks.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+        
+        // Handle window resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                if (window.innerWidth > 768) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                    document.body.style.overflow = '';
+                    
+                    // Reset menu items
+                    const navItems = navLinks.querySelectorAll('li');
+                    navItems.forEach(item => {
+                        item.style.transitionDelay = '';
+                        item.style.opacity = '';
+                        item.style.transform = '';
+                    });
+                }
+            }, 250);
         });
     }
 

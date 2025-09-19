@@ -3,46 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Smith's Medical Practice | Quality Healthcare Services</title>
+    <title>Dr. Said Hussein Ali | Periodontology & Implantology Specialist</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="navbar">
+    <header class="navbar" role="banner">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">Dr. Smith's <span>Medical Practice</span></a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Dr. Smith</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#patient-info">Patient Info</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="appointment-btn"><a href="#appointment">Book Appointment</a></li>
-            </ul>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
+            <a href="#home" class="nav-logo" aria-label="Dr. Said Hussein Ali - Home">
+                <i class="fas fa-tooth"></i>
+                <span>Dr. Said <span>Hussein Ali</span></span>
+            </a>
+            
+            <nav class="nav-menu" role="navigation" aria-label="Main Navigation">
+                <ul class="nav-links">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active" data-nav-link>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link" data-nav-link>About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link" data-nav-link>Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#patient-info" class="nav-link" data-nav-link>Patient Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#testimonials" class="nav-link" data-nav-link>Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link" data-nav-link>Contact</a>
+                    </li>
+                    <li class="nav-item appointment-btn">
+                        <a href="#appointment" class="nav-link cta-button pulse" data-nav-link>
+                            <i class="fas fa-calendar-alt"></i> Book Appointment
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-navigation">
+                <span class="menu-icon">
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                </span>
+                <span class="sr-only">Menu</span>
             </button>
         </div>
     </header>
     <main class="main-content">
         <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="fade-up">Dr. Said Hussein Ali</h1>
-                    <p class="fade-up" style="--delay: 0.2s">Periodontology & Implantology Specialist</p>
-                    <p class="fade-up" style="--delay: 0.4s">Providing advanced dental care with expertise in dental implants and periodontal treatments</p>
-                    <div class="cta-buttons fade-up" style="--delay: 0.6s">
-                        <a href="#appointment" class="btn btn-primary">Book Appointment</a>
-                        <a href="tel:+254703553000" class="btn btn-outline">Call Now: +254 703 553 000</a>
+            <!-- Background image will be set via CSS -->
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-subtitle">Welcome to My Practice</span>
+                    <h1>Dr. Said Hussein Ali</h1>
+                    <p class="highlight">Periodontology & Implantology Specialist</p>
+                    <p>Providing advanced dental care with expertise in dental implants and periodontal treatments. Your journey to a healthier, more confident smile starts here.</p>
+                    <div class="hero-buttons">
+                        <a href="#appointment" class="btn btn-primary btn-icon">
+                            Book Appointment <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="tel:+254703553000" class="btn btn-outline btn-icon">
+                            <i class="fas fa-phone-alt"></i> +254 703 553 000
+                        </a>
                     </div>
                 </div>
+                <div class="hero-image">
+                    <img src="doctor-portrait.jpg" alt="Dr. Said Hussein Ali - Periodontist & Implantologist" loading="lazy">
+                </div>
             </div>
-            <div class="scroll-indicator">
+            <a href="#about" class="scroll-indicator" aria-label="Scroll to next section">
                 <span>Scroll Down</span>
                 <i class="fas fa-chevron-down"></i>
-            </div>
+            </a>
         </section>
 
         <section id="testimonials" class="section">
@@ -359,7 +398,7 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Dr. Smith</a></li>
+                        <li><a href="#about">About Dr. Said</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#patient-info">Patient Info</a></li>
                         <li><a href="#contact">Contact</a></li>
@@ -373,7 +412,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Dr. Smith's Medical Practice. All Rights Reserved.</p>
+                <p>&copy; 2025 Dr. Said Hussein Ali. All Rights Reserved.</p>
                 <div class="social-links">
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
