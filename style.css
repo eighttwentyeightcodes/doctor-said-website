@@ -123,6 +123,13 @@
     --transition-normal: 250ms ease;
     --transition-slow: 400ms ease;
 }
+
+/* Ensure testimonials still slide even with reduced motion enabled */
+@media (prefers-reduced-motion: reduce) {
+    .testimonials-slider .testimonial {
+        transition: transform 0.6s ease, opacity 0.6s ease !important;
+    }
+}
 html {
     scroll-behavior: smooth;
     font-size: var(--font-size-base);
@@ -609,6 +616,15 @@ button:focus,
     padding: 6rem 0;
 }
 
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.25) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
 .hero-background-elements {
     position: absolute;
     top: 0;
@@ -752,7 +768,8 @@ button:focus,
 }
 
 .hero-text {
-    color: var(--dark-color);
+    color: var(--white-text);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     max-width: 600px;
 }
 
@@ -768,17 +785,19 @@ button:focus,
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: var(--white-text);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     margin-bottom: 1rem;
     font-size: 1.1rem;
     opacity: 0.9;
 }
 
 .hero-greeting {
-    color: var(--wine-red);
+    color: var(--white-text);
 }
 
 .hero-greeting i {
-    color: var(--wine-red);
+    color: var(--white-text);
     font-size: 1.2rem;
 }
 
@@ -787,21 +806,36 @@ button:focus,
     margin-bottom: 1rem;
     font-weight: 800;
     line-height: 1.1;
-    color: var(--dark-color);
+    color: var(--white-text);
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
 }
 
 .hero-header .highlight {
     font-size: clamp(1.2rem, 2.5vw, 1.8rem);
     margin-bottom: 1.5rem;
     font-weight: 600;
-    color: var(--wine-red);
+    color: var(--white-text);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .hero-header p {
     font-size: 1.1rem;
     line-height: 1.7;
     margin-bottom: 2rem;
-    color: var(--text-color);
+    color: var(--white-text);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.hero .feature-number,
+.hero .feature-label {
+    color: var(--white-text);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.hero .feature-icon {
+    color: var(--white-text);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .hero-features {
@@ -1396,12 +1430,7 @@ button:focus,
         box-shadow: var(--shadow-md);
     }
 
-    /* Optimize for touch scrolling */
-    .testimonial {
-        position: relative !important;
-        opacity: 1 !important;
-        transform: none !important;
-    }
+    /* Keep testimonials sliding on touch devices (no override here) */
 }
 
 /* High DPI screens */
@@ -1449,6 +1478,13 @@ button:focus,
     .hero-circle,
     .floating-element {
         animation: none !important;
+    }
+}
+
+/* Override: keep testimonial transitions even when reduced motion is on */
+@media (prefers-reduced-motion: reduce) {
+    .testimonials-slider .testimonial {
+        transition: transform 0.6s ease, opacity 0.6s ease !important;
     }
 }
 
@@ -2521,6 +2557,18 @@ input, textarea, select {
     position: relative;
     z-index: 2;
     pointer-events: auto;
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .testimonials-slider .testimonial {
+        position: absolute !important;
+        opacity: 0 !important;
+        transform: translateX(100%) !important;
+    }
+    .testimonials-slider .testimonial.active {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+    }
 }
 
 .testimonial.prev {
