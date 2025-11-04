@@ -1079,10 +1079,11 @@ function setupScrollTextAnimations() {
 // ENHANCED TESTIMONIALS CAROUSEL WITH DEBUGGING
 // ============================================================================
 function setupTestimonialsCarouselEnhanced() {
-    const testimonials = document.querySelectorAll('.testimonial');
-    const prevBtn = document.querySelector('.testimonial-nav.prev');
-    const nextBtn = document.querySelector('.testimonial-nav.next');
-    const indicators = document.querySelectorAll('.indicator');
+    const slider = document.querySelector('#testimonials .testimonials-slider');
+    const testimonials = slider ? slider.querySelectorAll('.testimonial') : [];
+    const prevBtn = document.querySelector('#testimonials .testimonial-nav.prev');
+    const nextBtn = document.querySelector('#testimonials .testimonial-nav.next');
+    const indicators = document.querySelectorAll('#testimonials .indicator');
     let currentIndex = 0;
     let autoplayInterval;
 
@@ -1091,20 +1092,22 @@ function setupTestimonialsCarouselEnhanced() {
     console.log('Next button:', nextBtn);
     console.log('Indicators:', indicators.length);
 
-    if (!testimonials.length) {
+    if (!testimonials.length || !slider) {
         console.warn('No testimonials found!');
         return;
     }
+
+    // Start with whichever slide is marked active in HTML
+    const initialActiveIndex = Array.from(testimonials).findIndex(t => t.classList.contains('active'));
+    if (initialActiveIndex >= 0) currentIndex = initialActiveIndex;
 
     function showTestimonial(index) {
         console.log('Showing testimonial:', index);
         
         // Remove all classes
         testimonials.forEach((testimonial, i) => {
-            testimonial.classList.remove('active', 'prev');
-            if (i !== index) {
-                testimonial.style.position = 'absolute';
-            }
+            testimonial.classList.remove('active', 'prev', 'next');
+            testimonial.style.position = i === index ? 'relative' : 'absolute';
         });
 
         // Add active class to current
@@ -1115,6 +1118,12 @@ function setupTestimonialsCarouselEnhanced() {
         const prevIndex = currentIndex;
         if (prevIndex !== index && testimonials[prevIndex]) {
             testimonials[prevIndex].classList.add('prev');
+        }
+
+        // Prepare the next slide to the right
+        const nextIndex = (index + 1) % testimonials.length;
+        if (testimonials[nextIndex]) {
+            testimonials[nextIndex].classList.add('next');
         }
 
         // Update indicators
