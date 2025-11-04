@@ -3233,7 +3233,7 @@ input, textarea, select {
     border-radius: 16px;
     border: none;
     box-shadow: 0 4px 20px rgba(20, 184, 166, 0.12);
-    padding: 2.5rem;
+    padding: 0;
 }
 
 .appointment-info h3 {
@@ -3245,13 +3245,17 @@ input, textarea, select {
 
 .appointment-form h3 {
     color: var(--dark-color);
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 700;
-    margin: -2.5rem -2.5rem 2rem -2.5rem;
-    padding: 1.5rem 2.5rem;
+    margin: 0;
+    padding: 2rem 2.5rem 1.5rem;
     border-radius: 16px 16px 0 0;
     background: transparent;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.appointment-form form {
+    padding: 2rem 2.5rem 2.5rem;
 }
 
 .features-list {
@@ -3365,36 +3369,43 @@ input, textarea, select {
 /* Form Enhancements */
 .form-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 1rem 1.25rem;
-    border: 2px solid var(--border-color);
+    padding: 0.875rem 1.125rem;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     font-family: var(--font-family-body);
-    font-size: 1rem;
+    font-size: 0.95rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: white;
+    background: #fafafa;
     color: var(--dark-color);
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .appointment-form .form-group input,
 .appointment-form .form-group select,
 .appointment-form .form-group textarea {
-    background: #ffffff;
-    border-radius: 10px;
+    background: #fafafa;
+    border-radius: 8px;
     border: 1px solid var(--border-color);
+}
+
+.appointment-form .form-group input::placeholder,
+.appointment-form .form-group select::placeholder,
+.appointment-form .form-group textarea::placeholder {
+    color: var(--muted-text);
+    opacity: 0.6;
 }
 
 .form-group label {
@@ -3410,53 +3421,34 @@ input, textarea, select {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+    background: #ffffff;
+    box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.08);
 }
 
 .form-group textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 100px;
 }
 
 .checkbox-container {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.625rem;
     cursor: pointer;
-    font-size: 1rem;
-}
-
-.checkbox-container .checkmark {
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-    border: 2px solid var(--border-color);
-    background: #fff;
-    display: inline-block;
-    position: relative;
-}
-
-.checkbox-container input:checked + .checkmark {
-    background: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.checkbox-container input:checked + .checkmark::after {
-    content: '';
-    position: absolute;
-    left: 5px;
-    top: 1px;
-    width: 6px;
-    height: 12px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
 }
 
 .checkbox-container input[type="checkbox"] {
     width: 18px;
     height: 18px;
     cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.checkbox-container .checkmark {
+    display: none;
 }
 
 .btn-block {
@@ -3467,24 +3459,26 @@ input, textarea, select {
 .appointment-form .btn {
     background: var(--primary-color);
     border: none;
-    border-radius: 10px;
-    padding: 1rem 2rem;
-    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.25);
-    font-size: 1.05rem;
+    border-radius: 8px;
+    padding: 0.875rem 2rem;
+    box-shadow: 0 2px 8px rgba(20, 184, 166, 0.2);
+    font-size: 1rem;
     font-weight: 600;
+    margin-top: 0.5rem;
 }
 
 .appointment-form .btn:hover {
     background: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(20, 184, 166, 0.35);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
 }
 
 .form-note {
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--muted-text);
     margin-top: 1rem;
+    line-height: 1.4;
 }
 
 /* Services Section - Optimized */
@@ -4517,6 +4511,7 @@ footer {
     
     .form-row {
         grid-template-columns: 1fr;
+        gap: 0;
     }
     
     /* Footer responsive */
