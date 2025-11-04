@@ -1,13 +1,13 @@
 :root {
-    /* Colors - Clean Blue & White Theme */
-    --primary-color: #0D5C91;         /* Deep blue - primary brand color */
-    --primary-dark: #094A73;          /* Darker blue - hover states */
-    --secondary-color: #1ABC9C;       /* Teal - secondary accents */
-    --accent-color: #0D5C91;          /* Deep blue - call-to-action buttons */
-    --accent-hover: #094A73;          /* Darker blue - button hover state */
-    --wine-red: #0D5C91;              /* Deep blue - buttons and CTAs */
-    --wine-red-dark: #094A73;         /* Darker blue - hover states */
-    --wine-red-light: #1ABC9C;        /* Teal - accents */
+    /* Colors - Modern Teal & Turquoise Theme */
+    --primary-color: #14B8A6;         /* Vibrant teal - primary brand color */
+    --primary-dark: #0F766E;          /* Darker teal - hover states */
+    --secondary-color: #06B6D4;       /* Cyan - secondary accents */
+    --accent-color: #14B8A6;          /* Vibrant teal - call-to-action buttons */
+    --accent-hover: #0F766E;          /* Darker teal - button hover state */
+    --wine-red: #14B8A6;              /* Vibrant teal - buttons and CTAs */
+    --wine-red-dark: #0F766E;         /* Darker teal - hover states */
+    --wine-red-light: #2DD4BF;        /* Light teal - accents */
     
     /* Enhanced Neutral Colors for Better Contrast */
     --dark-color: #1a1a1a;            /* Dark gray - headings, maximum contrast */
