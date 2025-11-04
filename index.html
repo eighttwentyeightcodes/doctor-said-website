@@ -3,6 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dr. Said Hussein Ali - Board-certified Periodontology & Implantology Specialist with 10+ years experience. Expert dental implants, periodontal treatment, and cosmetic dentistry in Nairobi, Kenya.">
+    <meta name="keywords" content="periodontist, dental implants, periodontal treatment, gum disease, cosmetic dentistry, Nairobi dentist, Dr. Said Hussein Ali">
+    <meta name="author" content="Dr. Said Hussein Ali">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dr. Said Hussein Ali | Periodontology & Implantology Specialist">
+    <meta property="og:description" content="Expert dental implants and periodontal care with 10+ years experience. Board-certified specialist in Nairobi, Kenya.">
+    <meta property="og:image" content="Images/home_hero_optimized.jpg">
+    
+    <!-- Performance optimizations -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="Images/home_hero_optimized.jpg" as="image">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🦷</text></svg>">
     <title>Dr. Said Hussein Ali | Periodontology & Implantology Specialist</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -14,8 +31,7 @@
     <header class="navbar" role="banner">
         <div class="nav-container">
             <a href="#home" class="nav-logo" aria-label="Dr. Said Hussein Ali - Home">
-                <i class="fas fa-tooth"></i>
-                <span>Dr. Said <span>Hussein Ali</span></span>
+                <span>Dr. Said Hussein Ali</span>
             </a>
             
             <nav class="nav-menu" role="navigation" aria-label="Main Navigation">
@@ -30,9 +46,6 @@
                         <a href="#services" class="nav-link" data-nav-link>Services</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#patient-info" class="nav-link" data-nav-link>Patient Info</a>
-                    </li>
-                    <li class="nav-item">
                         <a href="#testimonials" class="nav-link" data-nav-link>Testimonials</a>
                     </li>
                     <li class="nav-item">
@@ -40,7 +53,7 @@
                     </li>
                     <li class="nav-item appointment-btn">
                         <a href="#appointment" class="nav-link cta-button pulse" data-nav-link>
-                            <i class="fas fa-calendar-alt"></i> Book Appointment
+                            Book Appointment
                         </a>
                     </li>
                 </ul>
@@ -58,30 +71,192 @@
     </header>
     <main class="main-content">
         <section id="home" class="hero">
-            <!-- Background image will be set via CSS -->
-            <div class="hero-content">
-                <div class="hero-text">
-                    <span class="hero-subtitle">Welcome to My Practice</span>
-                    <h1>Dr. Said Hussein Ali</h1>
-                    <p class="highlight">Periodontology & Implantology Specialist</p>
-                    <p>Providing advanced dental care with expertise in dental implants and periodontal treatments. Your journey to a healthier, more confident smile starts here.</p>
-                    <div class="hero-buttons">
-                        <a href="#appointment" class="btn btn-primary btn-icon">
-                            Book Appointment <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="tel:+254703553000" class="btn btn-outline btn-icon">
-                            <i class="fas fa-phone-alt"></i> +254 703 553 000
-                        </a>
+            <div class="hero-background-elements">
+                <div class="hero-circle hero-circle-1"></div>
+                <div class="hero-circle hero-circle-2"></div>
+                <div class="hero-circle hero-circle-3"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-image-wrapper">
+                        <img src="Images/IMG_2677_optimized.jpg" alt="Dr. Said Hussein Ali" class="hero-image" />
+                    </div>
+                    <div class="hero-text">
+                        <div class="hero-header">
+                            <div class="hero-greeting"><i class="fas fa-hand-paper"></i><span>Welcome</span></div>
+                            <h1>Dr. Said Hussein Ali</h1>
+                            <p class="highlight">Periodontology & Implantology Specialist</p>
+                            <p>Your trusted partner for advanced dental care with expertise in dental implants and periodontal treatments. Experience the perfect blend of cutting-edge technology and compassionate care for your journey to a healthier, more confident smile.</p>
+                        </div>
+                        <div class="hero-features">
+                            <div class="feature"><div class="feature-icon"><i class="fas fa-clock"></i></div><div class="feature-content"><span class="feature-number">10+</span><span class="feature-label">Years Experience</span></div></div>
+                            <div class="feature"><div class="feature-icon"><i class="fas fa-robot"></i></div><div class="feature-content"><span class="feature-number">Latest</span><span class="feature-label">Technology</span></div></div>
+                            <div class="feature"><div class="feature-icon"><i class="fas fa-heart"></i></div><div class="feature-content"><span class="feature-number">Patient</span><span class="feature-label">Centered Care</span></div></div>
+                        </div>
+                        <div class="hero-buttons">
+                            <a href="#appointment" class="btn btn-primary btn-icon"><i class="fas fa-calendar-alt"></i><span>Book Appointment</span></a>
+                            <a href="tel:+254703553000" class="btn btn-outline btn-icon"><i class="fas fa-phone-alt"></i><span>Call Now</span></a>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <img src="doctor-portrait.jpg" alt="Dr. Said Hussein Ali - Periodontist & Implantologist" loading="lazy">
+            </div>
+            <a href="#about" class="scroll-indicator" aria-label="Scroll to next section"><span>Explore More</span><i class="fas fa-chevron-down"></i></a>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Dr. Said</h2>
+                <p class="section-subtitle">Professional Excellence in Periodontology & Implantology</p>
+                
+                <div class="about-content">
+                    <div class="about-image-wrapper">
+                        <img src="Images/IMG_2671_optimized.jpg" alt="Dr. Said Hussein Ali - Professional" class="about-image" />
+                        <div class="about-image-badge">
+                            <i class="fas fa-award"></i>
+                            <span>10+ Years Experience</span>
+                        </div>
+                    </div>
+                    
+                    <div class="about-text">
+                        <div class="professional-summary">
+                            <p class="summary-text">Dr. Said Hussein Ali is a distinguished Periodontist and Implantologist with over a decade of specialized experience in advanced dental implant procedures and periodontal treatments. His expertise encompasses the full spectrum of modern implantology, from single-tooth restorations to complex full-mouth rehabilitations.</p>
+
+                            <div class="achievements-highlights">
+                                <div class="achievement-item">
+                                    <i class="fas fa-award"></i>
+                                    <span>Board-Certified Specialist</span>
+                                </div>
+                                <div class="achievement-item">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>MDS Periodontology & Implantology</span>
+                                </div>
+                                <div class="achievement-item">
+                                    <i class="fas fa-globe"></i>
+                                    <span>International Training & Certification</span>
+                                </div>
+                                <div class="achievement-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>1000+ Successful Procedures</span>
+                                </div>
+                            </div>
+
+                            <p class="summary-text">Committed to delivering exceptional patient care through evidence-based practices and cutting-edge dental technologies, Dr. Ali combines technical excellence with a compassionate approach to ensure optimal outcomes for every patient.</p>
+                        </div>
+
+                        <div class="about-actions">
+                            <a href="#contact" class="btn btn-primary">Book Consultation</a>
+                            <a href="#services" class="btn btn-outline">View Services</a>
+                            <button class="btn btn-secondary view-cv-btn">View Full CV</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <a href="#about" class="scroll-indicator" aria-label="Scroll to next section">
-                <span>Scroll Down</span>
-                <i class="fas fa-chevron-down"></i>
-            </a>
+        </section>
+
+        <section id="services" class="section bg-light">
+            <div class="services-parallax-bg">
+                <div class="parallax-shape parallax-shape-1"></div>
+                <div class="parallax-shape parallax-shape-2"></div>
+                <div class="parallax-shape parallax-shape-3"></div>
+            </div>
+            <div class="container">
+                <div class="services-content">
+                    <h2 class="section-title">Our Services</h2>
+                    <p class="section-subtitle">Comprehensive Dental Care</p>
+
+                    <div class="services-grid">
+                        <div class="service-card" data-service="dental-implants">
+                            <div class="service-icon">
+                                <i class="fas fa-tooth"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Dental Implants</h3>
+                                <p>Permanent tooth replacement with natural-looking results</p>
+                                <div class="service-features">
+                                    <span class="feature">Single & Multiple Teeth</span>
+                                    <span class="feature">All-on-4® Available</span>
+                                </div>
+                                <button class="service-btn">Learn More</button>
+                            </div>
+                        </div>
+
+                        <div class="service-card" data-service="periodontal-treatment">
+                            <div class="service-icon">
+                                <i class="fas fa-teeth-open"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Periodontal Treatment</h3>
+                                <p>Advanced gum disease therapy and maintenance</p>
+                                <div class="service-features">
+                                    <span class="feature">LANAP® Laser Therapy</span>
+                                    <span class="feature">Non-surgical Options</span>
+                                </div>
+                                <button class="service-btn">Learn More</button>
+                            </div>
+                        </div>
+
+                        <div class="service-card" data-service="gum-grafting">
+                            <div class="service-icon">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Gum Grafting</h3>
+                                <p>Restore receding gums and protect tooth roots</p>
+                                <div class="service-features">
+                                    <span class="feature">Multiple Techniques</span>
+                                    <span class="feature">Fast Recovery</span>
+                                </div>
+                                <button class="service-btn">Learn More</button>
+                            </div>
+                        </div>
+
+                        <div class="service-card" data-service="bone-grafting">
+                            <div class="service-icon">
+                                <i class="fas fa-bone"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Bone Grafting</h3>
+                                <p>Build bone foundation for dental implants</p>
+                                <div class="service-features">
+                                    <span class="feature">Sinus Lift</span>
+                                    <span class="feature">Ridge Augmentation</span>
+                                </div>
+                                <button class="service-btn">Learn More</button>
+                            </div>
+                        </div>
+
+                        <div class="service-card" data-service="cosmetic-periodontics">
+                            <div class="service-icon">
+                                <i class="fas fa-smile-beam"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Cosmetic Periodontics</h3>
+                                <p>Enhance your smile with gum contouring</p>
+                                <div class="service-features">
+                                    <span class="feature">Gum Reshaping</span>
+                                    <span class="feature">Crown Lengthening</span>
+                                </div>
+                                <button class="service-btn">Learn More</button>
+                            </div>
+                        </div>
+
+                        <div class="service-card" data-service="tooth-extraction">
+                            <div class="service-icon">
+                                <i class="fas fa-tooth"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Tooth Extraction</h3>
+                                <p>Gentle removal with immediate implant options</p>
+                                <div class="service-features">
+                                    <span class="feature">Wisdom Teeth</span>
+                                    <span class="feature">Same-day Implants</span>
+                                </div>
+                                <button class="service-btn">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="testimonials" class="section">
@@ -90,188 +265,126 @@
                 <p class="section-subtitle">What my patients say about their experience</p>
                 
                 <div class="testimonials-slider">
-                    <div class="testimonial">
+                    <div class="testimonial active" data-testimonial="1">
                         <div class="testimonial-content">
-                            <p>"Dr. Ali performed my dental implant procedure with exceptional skill and care. His attention to detail and gentle approach made the entire process comfortable. I couldn't be happier with the results!"</p>
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                                <p>"Dr. Ali performed my dental implant procedure with exceptional skill and care. His attention to detail and gentle approach made the entire process comfortable. I couldn't be happier with the results!"</p>
+                                <i class="fas fa-quote-right"></i>
+                            </div>
                         </div>
                         <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
                             <div class="author-info">
                                 <h4>James K.</h4>
                                 <span>Dental Implant Patient</span>
+                                <div class="author-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="testimonial">
+                    <div class="testimonial" data-testimonial="2">
                         <div class="testimonial-content">
-                            <p>"After struggling with gum disease for years, Dr. Ali's periodontal treatment has given me my oral health back. His expertise and compassionate care are truly remarkable. Highly recommended!"</p>
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                                <p>"After struggling with gum disease for years, Dr. Ali's periodontal treatment has given me my oral health back. His expertise and compassionate care are truly remarkable. Highly recommended!"</p>
+                                <i class="fas fa-quote-right"></i>
+                            </div>
                         </div>
                         <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
                             <div class="author-info">
                                 <h4>Fatuma A.</h4>
                                 <span>Periodontal Patient</span>
+                                <div class="author-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="testimonial">
+                    <div class="testimonial" data-testimonial="3">
                         <div class="testimonial-content">
-                            <p>"Dr. Said is an outstanding professional. He took the time to explain every step of my treatment plan and made sure I was comfortable throughout the procedure. The results exceeded my expectations."</p>
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                                <p>"Dr. Said is an outstanding professional. He took the time to explain every step of my treatment plan and made sure I was comfortable throughout the procedure. The results exceeded my expectations."</p>
+                                <i class="fas fa-quote-right"></i>
+                            </div>
                         </div>
                         <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
                             <div class="author-info">
                                 <h4>Michael N.</h4>
                                 <span>Cosmetic Dentistry Patient</span>
+                                <div class="author-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="about" class="section">
-            <div class="container">
-                <h2 class="section-title">About Dr. Said</h2>
-                <div class="about-content">
-                    <div class="about-image fade-left">
-                        <img src="doctor.jpg" alt="Dr. Said Hussein Ali" class="doctor-img">
+                <div class="testimonial-controls">
+                    <button class="testimonial-nav prev" aria-label="Previous testimonial">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="testimonial-indicators">
+                        <button class="indicator active" data-slide="1"></button>
+                        <button class="indicator" data-slide="2"></button>
+                        <button class="indicator" data-slide="3"></button>
                     </div>
-                    <div class="about-text fade-right">
-                        <h3>Personal Details</h3>
-                        <p><strong>Address:</strong> Kilimani, Wood Avenue, Nairobi<br>
-                        <strong>Marital Status:</strong> Single<br>
-                        <strong>Languages:</strong> English, Arabic, and Somali<br>
-                        <strong>Nationality:</strong> Somalia<br>
-                        <strong>Telephone:</strong> <a href="tel:+254703553000">+254 703 553 000</a><br>
-                        <strong>Email:</strong> <a href="mailto:drsaidali12@gmail.com">drsaidali12@gmail.com</a></p>
-                        
-                        <h3>Professional Summary</h3>
-                        <p>Dedicated Periodontist and Implantologist with extensive experience in dental implants, periodontal treatments, and emergency dental care. Enrolled in and completed fellowship of oral implantology and became a member of German Association of Dental Implantology. Committed to providing exceptional patient care using the latest techniques and technologies in modern dentistry.</p>
-                        
-                        <h3>Education</h3>
-                        <ul class="education-list">
-                            <li><strong>Master of Dental Surgery in Periodontology and Implantology</strong><br>University of Nairobi (2021-2025)</li>
-                            <li><strong>Fellowship in Oral Implantology</strong><br>German Board of Oral Implantology (GBOI) - Dec 2016 to Apr 2018</li>
-                            <li><strong>Bachelor of Dental Surgery (BDS)</strong><br>Elrazi University of Khartoum, Sudan (2011-2016)</li>
-                            <li><strong>Dental Office Safety Course</strong><br>OSHA Academy (2018)</li>
-                        </ul>
-                        
-                        <h3>Work Experience</h3>
-                        <div class="experience-item">
-                            <h4>Dental Officer</h4>
-                            <p class="company">Nairobi Hospital Doctors Plaza</p>
-                            <p class="duration">May 2024 - Present</p>
-                        </div>
-                        
-                        <div class="experience-item">
-                            <h4>Dental Officer</h4>
-                            <p class="company">STAR Dental Clinics, Nairobi</p>
-                            <p class="duration">May 2019 - May 2024</p>
-                            <p class="responsibilities">Managing outpatient cases at the clinic.</p>
-                        </div>
-                        
-                        <div class="experience-item">
-                            <h4>Medical Officer / Dental Implant Trainee</h4>
-                            <p class="company">AL-MUDDATHIR Clinic, Khartoum</p>
-                            <p class="duration">May 2018 - February 2019</p>
-                            <p class="responsibilities">Caring for outpatient cases at dental department. Assisted dental implants and followed up with patients at the clinic.</p>
-                        </div>
-                        
-                        <div class="experience-item">
-                            <h4>House Officer</h4>
-                            <p class="company">Sudan Ministry of Health</p>
-                            <p class="duration">December 2016 - December 2017</p>
-                            <p class="responsibilities">Successfully finished 1 year of organized internship involving majors: Oral maxillo-facial surgery, periodontology, dental public health, conservation, prosthodontics and pedodontics.</p>
-                        </div>
-                        
-                        <h3>Workshops & Conferences</h3>
-                        <ul class="workshops-list">
-                            <li>12th Jan 2018 - Participated in advanced implantology workshop sponsored and held at Dandra Dental Implantology Center (DDIC)</li>
-                        </ul>
-                        
-                        <h3>References</h3>
-                        <div class="reference">
-                            <h4>Dr. Nalson Matu</h4>
-                            <p>Senior Consultant, Department of Periodontology<br>
-                            University of Nairobi<br>
-                            Email: <a href="mailto:nkmatu@yahoo.com">nkmatu@yahoo.com</a><br>
-                            Phone: <a href="tel:0722793909">0722 793 909</a></p>
-                        </div>
-                        
-                        <div class="reference">
-                            <h4>Dr. Tonnie Mulli</h4>
-                            <p>PhD Holder and Lecturer<br>
-                            University of Nairobi<br>
-                            Email: <a href="mailto:mullitonnie@uonbi.ac.ke">mullitonnie@uonbi.ac.ke</a><br>
-                            Phone: <a href="tel:0708414997">0708 414 997</a></p>
-                        </div>
-                        
-                        <h3>Personal Interests</h3>
-                        <p>CrossFit, Football, Reading, Movies, and Bowling</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="services" class="section">
-            <h2>Our Services</h2>
-            <p class="section-subtitle">Comprehensive dental care services for all your needs</p>
-            <div class="services-container">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-heartbeat"></i>
-                    </div>
-                    <h3>Dental Implants</h3>
-                    <p>Permanent tooth replacement solutions for a natural smile and improved oral function.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tooth"></i>
-                    </div>
-                    <h3>Periodontal Treatment</h3>
-                    <p>Advanced treatments for gum disease, including scaling, root planing, and gum grafting.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-smile"></i>
-                    </div>
-                    <h3>Cosmetic Dentistry</h3>
-                    <p>Transform your smile with our range of cosmetic services, including teeth whitening, veneers, and crowns.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Emergency Dental Care</h3>
-                    <p>Urgent care for dental emergencies, including toothaches, chipped teeth, and lost fillings.</p>
+                    <button class="testimonial-nav next" aria-label="Next testimonial">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="section">
-            <h2>Contact Us</h2>
-            <p class="section-subtitle">Get in touch with us for any questions or concerns</p>
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Get in touch with us for any questions or concerns</p>
             <div class="contact-container">
                 <div class="contact-info">
                     <div class="contact-method">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <h4>Our Location</h4>
-                            <p>123 Medical Center Drive<br>Suite 456<br>Boston, MA 02115</p>
+                            <p>Kilimani, Wood Avenue<br>Nairobi, Kenya</p>
                         </div>
                     </div>
                     <div class="contact-method">
                         <i class="fas fa-phone"></i>
                         <div>
                             <h4>Phone</h4>
-                            <p>Main: (123) 456-7890<br>Fax: (123) 456-7891</p>
+                            <p><a href="tel:+254703553000">+254 703 553 000</a></p>
                         </div>
                     </div>
                     <div class="contact-method">
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
-                            <p>info@drsmithpractice.com</p>
+                            <p><a href="mailto:drsaidali12@gmail.com">drsaidali12@gmail.com</a></p>
                         </div>
                     </div>
                     <div class="contact-method">
@@ -283,8 +396,7 @@
                             Sunday: Closed</p>
                         </div>
                     </div>
-                    <p><i class="fas fa-phone"></i> +254 113064648</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                    
                     <div class="social-links">
                         <a href="http://linkedin.com/in/victor-musyoka" target="_blank"><i class="fab fa-linkedin"></i></a>
                         <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
@@ -400,15 +512,14 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Dr. Said</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="#patient-info">Patient Info</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Contact Info</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Medical Center Dr, Boston, MA</p>
-                    <p><i class="fas fa-phone"></i> (123) 456-7890</p>
-                    <p><i class="fas fa-envelope"></i> info@drsmithpractice.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kilimani, Wood Avenue, Nairobi</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+254703553000">+254 703 553 000</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:drsaidali12@gmail.com">drsaidali12@gmail.com</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -421,6 +532,6 @@
             </div>
         </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

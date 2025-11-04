@@ -11,3 +11,16 @@ npm-debug.log
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Embedded git repositories
+doctor-said-website/
+doctor-website/
+
+# Backup files
+*.backup
+
+# Large original images (keep optimized versions only)
+Images/*_original.*
+Images/IMG_2644.JPG
+Images/IMG_2671.JPG
+Images/IMG_2677.jpeg
