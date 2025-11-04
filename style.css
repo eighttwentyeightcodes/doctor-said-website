@@ -10,13 +10,13 @@
     --wine-red-light: #2DD4BF;        /* Light teal - accents */
     
     /* Enhanced Neutral Colors for Better Contrast */
-    --dark-color: #1a1a1a;            /* Dark gray - headings, maximum contrast */
-    --text-color: #2d2d2d;            /* Medium dark - body text, maximum readability */
+    --dark-color: #334155;            /* Slate gray - headings, softer contrast */
+    --text-color: #475569;            /* Medium slate - body text, comfortable readability */
     --light-color: #ffffff;           /* Pure white - backgrounds, text on dark */
     --white-text: #ffffff;            /* Pure white for text on dark backgrounds */
-    --light-gray: #fafafa;            /* Very light gray - section backgrounds */
-    --border-color: #f0f0f0;          /* Light gray - borders, dividers */
-    --muted-text: #666666;            /* Muted gray - secondary text */
+    --light-gray: #f8fafc;            /* Very light slate - section backgrounds */
+    --border-color: #e2e8f0;          /* Light slate - borders, dividers */
+    --muted-text: #64748b;            /* Muted slate - secondary text */
     
     /* Status Colors */
     --success-color: #38a169;         /* Green - success messages */
