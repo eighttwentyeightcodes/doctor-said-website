@@ -3206,18 +3206,24 @@ input, textarea, select {
 
 /* Appointment Section */
 #appointment.section {
-    background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
     padding: 6rem 0;
 }
 
 .appointment-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.3fr;
     gap: 3rem;
     align-items: flex-start;
 }
 
-.appointment-info,
+.appointment-info {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
 .appointment-form {
     min-width: 0;
 }
@@ -3230,15 +3236,17 @@ input, textarea, select {
     padding: 2.5rem;
 }
 
-.appointment-info h3,
+.appointment-info h3 {
+    color: var(--dark-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
 .appointment-form h3 {
     color: var(--dark-color);
     font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
-}
-
-.appointment-form h3 {
     margin: -2.5rem -2.5rem 2rem -2.5rem;
     padding: 1.5rem 2.5rem;
     border-radius: 16px 16px 0 0;
@@ -3249,86 +3257,109 @@ input, textarea, select {
 .features-list {
     list-style: none;
     padding: 0;
-    margin: 2rem 0;
+    margin: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(20, 184, 166, 0.08);
+    border: 1px solid var(--border-color);
 }
 
 .features-list li {
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    align-items: flex-start;
+    gap: 0.75rem;
     padding: 0.75rem 0;
-    font-size: 1.05rem;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    line-height: 1.5;
     color: var(--text-color);
-    font-weight: 600;
+    font-weight: 500;
 }
 
-.appointment-info .features-list li {
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--border-color);
+.features-list li:first-child {
+    padding-top: 0;
 }
 
-.appointment-info .features-list li:last-child {
-    border-bottom: none;
-}
-
-.appointment-info .features-list i {
-    color: var(--wine-red);
-    font-size: 1.1rem;
+.features-list li:last-child {
+    padding-bottom: 0;
 }
 
 .features-list i {
-    color: var(--wine-red);
-    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-size: 1rem;
     flex-shrink: 0;
+    margin-top: 0.15rem;
 }
 
 .emergency-contact,
 .office-hours {
-    padding: 1.5rem 0;
-    background: transparent;
-    border-radius: 0;
-    margin-top: 2rem;
-    border-top: 2px solid var(--border-color);
-    border-left: none;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 12px;
+    margin: 0;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px rgba(20, 184, 166, 0.08);
+}
+
+.emergency-contact {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.05), rgba(20, 184, 166, 0.02));
+    border-color: var(--primary-color);
 }
 
 .emergency-contact h4,
 .office-hours h4 {
-    margin-top: 0;
-    margin-bottom: 1rem;
+    margin: 0 0 0.75rem 0;
     color: var(--dark-color);
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
-.emergency-contact p,
-.office-hours ul {
+.emergency-contact p {
     margin: 0.5rem 0;
     line-height: 1.6;
     color: var(--text-color);
-    font-weight: 600;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.emergency-contact p:last-child {
+    margin-bottom: 0;
 }
 
 .emergency-contact a,
 .office-hours a {
-    color: var(--wine-red);
+    color: var(--primary-color);
     font-weight: 600;
+    text-decoration: none;
+}
+
+.emergency-contact a:hover,
+.office-hours a:hover {
+    color: var(--primary-dark);
 }
 
 .office-hours ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .office-hours li {
     padding: 0.5rem 0;
-    border-bottom: none;
     color: var(--text-color);
     font-weight: 500;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.office-hours li:first-child {
+    padding-top: 0;
+}
+
+.office-hours li:last-child {
+    padding-bottom: 0;
 }
 
 /* Form Enhancements */
@@ -4480,7 +4511,7 @@ footer {
     
     /* Appointment section responsive */
     .appointment-container {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 2rem;
     }
     
