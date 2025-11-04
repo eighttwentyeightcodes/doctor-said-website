@@ -3195,10 +3195,10 @@ input, textarea, select {
 
 .appointment-form {
     background: #ffffff;
-    border-radius: 18px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-    padding: 2rem;
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 4px 20px rgba(20, 184, 166, 0.12);
+    padding: 2.5rem;
 }
 
 .appointment-info h3,
@@ -3210,10 +3210,11 @@ input, textarea, select {
 }
 
 .appointment-form h3 {
-    margin: -2rem -2rem 1.5rem -2rem;
-    padding: 1.25rem 2rem;
-    border-radius: 18px 18px 0 0;
-    background: linear-gradient(135deg, rgba(13, 92, 145, 0.08), rgba(26, 188, 156, 0.06));
+    margin: -2.5rem -2.5rem 2rem -2.5rem;
+    padding: 1.5rem 2.5rem;
+    border-radius: 16px 16px 0 0;
+    background: transparent;
+    border-bottom: 2px solid var(--border-color);
 }
 
 .features-list {
@@ -3234,10 +3235,15 @@ input, textarea, select {
 }
 
 .appointment-info .features-list li {
-    background: var(--light-gray);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 0.75rem 1rem;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.appointment-info .features-list li:last-child {
+    border-bottom: none;
 }
 
 .appointment-info .features-list i {
@@ -3253,11 +3259,12 @@ input, textarea, select {
 
 .emergency-contact,
 .office-hours {
-    padding: 1.5rem;
-    background: var(--light-gray);
-    border-radius: 10px;
+    padding: 1.5rem 0;
+    background: transparent;
+    border-radius: 0;
     margin-top: 2rem;
-    border-left: 4px solid var(--wine-red);
+    border-top: 2px solid var(--border-color);
+    border-left: none;
 }
 
 .emergency-contact h4,
@@ -3290,13 +3297,9 @@ input, textarea, select {
 
 .office-hours li {
     padding: 0.5rem 0;
-    border-bottom: 1px dashed var(--border-color);
-    color: var(--text-color);
-    font-weight: 600;
-}
-
-.office-hours li:last-child {
     border-bottom: none;
+    color: var(--text-color);
+    font-weight: 500;
 }
 
 /* Form Enhancements */
@@ -3329,9 +3332,9 @@ input, textarea, select {
 .appointment-form .form-group input,
 .appointment-form .form-group select,
 .appointment-form .form-group textarea {
-    background: #fafafa;
-    border-radius: 12px;
-    border: 1.5px solid var(--border-color);
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
 }
 
 .form-group label {
@@ -3346,8 +3349,8 @@ input, textarea, select {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--wine-red);
-    box-shadow: 0 0 0 3px rgba(157, 23, 77, 0.1);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
 }
 
 .form-group textarea {
@@ -3366,7 +3369,7 @@ input, textarea, select {
 .checkbox-container .checkmark {
     width: 20px;
     height: 20px;
-    border-radius: 6px;
+    border-radius: 4px;
     border: 2px solid var(--border-color);
     background: #fff;
     display: inline-block;
@@ -3374,8 +3377,8 @@ input, textarea, select {
 }
 
 .checkbox-container input:checked + .checkmark {
-    background: var(--wine-red);
-    border-color: var(--wine-red);
+    background: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 .checkbox-container input:checked + .checkmark::after {
@@ -3402,16 +3405,19 @@ input, textarea, select {
 }
 
 .appointment-form .btn {
-    background: linear-gradient(135deg, var(--wine-red), var(--wine-red-dark));
+    background: var(--primary-color);
     border: none;
-    border-radius: 12px;
-    padding: 1rem 1.25rem;
-    box-shadow: 0 10px 25px rgba(157, 23, 77, 0.3);
+    border-radius: 10px;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.25);
+    font-size: 1.05rem;
+    font-weight: 600;
 }
 
 .appointment-form .btn:hover {
+    background: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 14px 30px rgba(157, 23, 77, 0.4);
+    box-shadow: 0 6px 16px rgba(20, 184, 166, 0.35);
 }
 
 .form-note {
