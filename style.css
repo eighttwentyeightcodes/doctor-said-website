@@ -2449,82 +2449,76 @@ input, textarea, select {
 
 /* Contact Section */
 #contact.section {
-    background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
     padding: 6rem 0;
 }
 
 .contact-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
     gap: 4rem;
     align-items: flex-start;
 }
 
 .contact-info {
-    flex: 1;
-}
-
-.contact-info p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    color: var(--text-color);
-    font-weight: 600;
-}
-
-.contact-info h4 {
-    color: var(--dark-color);
-    font-weight: 800;
-    font-size: 1.2rem;
-}
-
-.contact-info i {
-    color: var(--wine-red);
-    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .contact-form {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(20, 184, 166, 0.12);
+    border: none;
 }
 
 .contact-form input,
 .contact-form textarea {
     width: 100%;
     padding: 1rem 1.25rem;
-    margin-bottom: 1rem;
-    border: 2px solid var(--border-color);
-    border-radius: 8px;
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
     font-family: var(--font-family-body);
     font-size: 1rem;
     color: var(--dark-color);
-    background: white;
+    background: #ffffff;
     transition: all 0.3s ease;
+}
+
+.contact-form textarea {
+    min-height: 140px;
+    resize: vertical;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    border-color: var(--wine-red);
-    box-shadow: 0 0 0 3px rgba(157, 23, 77, 0.1);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
 }
 
 .contact-form button {
-    background: var(--wine-red);
+    background: var(--primary-color);
     color: var(--white-text);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     padding: 1rem 2rem;
     border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 700;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 600;
     cursor: pointer;
+    width: 100%;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.25);
 }
 
 .contact-form button:hover {
-    background: var(--wine-red-dark);
+    background: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(157, 23, 77, 0.4);
+    box-shadow: 0 6px 16px rgba(20, 184, 166, 0.35);
 }
 
 /* ==========================================================================
@@ -2657,7 +2651,6 @@ input, textarea, select {
 /* Stronger legibility for key buttons */
 .hero-buttons .btn,
 .service-btn,
-.contact-form button,
 .testimonial-nav {
     color: var(--white-text) !important;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.55) !important;
@@ -3129,29 +3122,37 @@ input, textarea, select {
 .contact-method {
     display: flex;
     align-items: flex-start;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background: var(--light-gray);
-    border-radius: 10px;
+    gap: 1.25rem;
+    padding: 1.75rem;
+    background: #ffffff;
+    border-radius: 12px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(20, 184, 166, 0.08);
+    border: 1px solid var(--border-color);
 }
 
 .contact-method:hover {
-    background: white;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(20, 184, 166, 0.15);
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
 }
 
 .contact-method i {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: var(--primary-color);
     flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(20, 184, 166, 0.1);
+    border-radius: 10px;
 }
 
 .contact-method h4 {
     margin: 0 0 0.5rem 0;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--dark-color);
     font-weight: 700;
 }
@@ -3159,20 +3160,48 @@ input, textarea, select {
 .contact-method p {
     margin: 0;
     line-height: 1.6;
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: var(--text-color);
     font-weight: 500;
 }
 
 .contact-method a {
-    color: var(--wine-red);
+    color: var(--primary-color);
     font-weight: 600;
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 .contact-method a:hover {
-    color: var(--wine-red-dark);
-    text-decoration: underline;
+    color: var(--primary-dark);
+    text-decoration: none;
+}
+
+.contact-info .social-links {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.contact-info .social-links a {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(20, 184, 166, 0.1);
+    border-radius: 10px;
+    color: var(--primary-color);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--border-color);
+}
+
+.contact-info .social-links a:hover {
+    background: var(--primary-color);
+    color: var(--white-text);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.25);
+    border-color: var(--primary-color);
 }
 
 /* Appointment Section */
