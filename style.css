@@ -3369,7 +3369,7 @@ input, textarea, select {
 /* Form Enhancements */
 .form-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1rem;
     margin-bottom: 1rem;
 }
@@ -3396,9 +3396,11 @@ input, textarea, select {
 .appointment-form .form-group input,
 .appointment-form .form-group select,
 .appointment-form .form-group textarea {
-    background: #fafafa;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
+    background: transparent;
+    border-radius: 0;
+    border: none;
+    padding: 0.875rem 0;
+    appearance: none;
 }
 
 .appointment-form .form-group input::placeholder,
@@ -3423,6 +3425,16 @@ input, textarea, select {
     background: #ffffff;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.08);
+}
+
+/* Appointment form: underline-only focus, no box shadow */
+.appointment-form .form-group input:focus,
+.appointment-form .form-group select:focus,
+.appointment-form .form-group textarea:focus {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--primary-color);
+    box-shadow: none;
 }
 
 .form-group textarea {
@@ -3480,6 +3492,14 @@ input, textarea, select {
     color: var(--muted-text);
     margin-top: 1rem;
     line-height: 1.4;
+}
+
+/* Input helper hint */
+.input-hint {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+    color: var(--muted-text);
 }
 
 /* Services Section - Optimized */
