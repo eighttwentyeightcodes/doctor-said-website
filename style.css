@@ -3192,12 +3192,27 @@ input, textarea, select {
     flex: 1;
 }
 
+.appointment-form {
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+}
+
 .appointment-info h3,
 .appointment-form h3 {
     color: var(--dark-color);
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
+}
+
+.appointment-form h3 {
+    margin: -0.5rem -0.5rem 1.25rem -0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(157, 23, 77, 0.08), rgba(13, 92, 145, 0.06));
 }
 
 .features-list {
@@ -3215,6 +3230,18 @@ input, textarea, select {
     line-height: 1.6;
     color: var(--text-color);
     font-weight: 600;
+}
+
+.appointment-info .features-list li {
+    background: var(--light-gray);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+}
+
+.appointment-info .features-list i {
+    color: var(--wine-red);
+    font-size: 1.1rem;
 }
 
 .features-list i {
@@ -3298,6 +3325,14 @@ input, textarea, select {
     font-weight: 500;
 }
 
+.appointment-form .form-group input,
+.appointment-form .form-group select,
+.appointment-form .form-group textarea {
+    background: #fafafa;
+    border-radius: 12px;
+    border: 1.5px solid var(--border-color);
+}
+
 .form-group label {
     color: var(--dark-color);
     font-weight: 600;
@@ -3327,6 +3362,33 @@ input, textarea, select {
     font-size: 1rem;
 }
 
+.checkbox-container .checkmark {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    border: 2px solid var(--border-color);
+    background: #fff;
+    display: inline-block;
+    position: relative;
+}
+
+.checkbox-container input:checked + .checkmark {
+    background: var(--wine-red);
+    border-color: var(--wine-red);
+}
+
+.checkbox-container input:checked + .checkmark::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
 .checkbox-container input[type="checkbox"] {
     width: 18px;
     height: 18px;
@@ -3336,6 +3398,19 @@ input, textarea, select {
 .btn-block {
     width: 100%;
     justify-content: center;
+}
+
+.appointment-form .btn {
+    background: linear-gradient(135deg, var(--wine-red), var(--wine-red-dark));
+    border: none;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 10px 25px rgba(157, 23, 77, 0.3);
+}
+
+.appointment-form .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(157, 23, 77, 0.4);
 }
 
 .form-note {
