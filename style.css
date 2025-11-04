@@ -633,7 +633,7 @@ button:focus,
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.25) 100%);
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.15) 0%, rgba(6, 182, 212, 0.10) 100%);
     z-index: 2;
     pointer-events: none;
 }
@@ -3544,7 +3544,7 @@ input, textarea, select {
     font-size: 0.85rem;
     color: var(--dark-color);
     padding: 0.4rem 0.8rem;
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(20, 184, 166, 0.08);
     border-radius: 25px;
     display: inline-block;
     width: fit-content;
@@ -3944,7 +3944,7 @@ input, textarea, select {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(20, 184, 166, 0.95);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4108,6 +4108,12 @@ input, textarea, select {
     .case-results {
         justify-content: center;
     }
+}
+
+footer {
+    background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+    padding: 4rem 0 2rem;
+    color: var(--white-text);
 }
 
 .footer-content {
