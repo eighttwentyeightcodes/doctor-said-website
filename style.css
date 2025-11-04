@@ -1,13 +1,13 @@
 :root {
-    /* Colors - Clean Wine Red & White Theme */
-    --primary-color: #9D174D;         /* Wine red - primary brand color */
-    --primary-dark: #831843;          /* Darker wine red - hover states */
-    --secondary-color: #BE185D;       /* Lighter wine red - secondary accents */
-    --accent-color: #9D174D;          /* Wine red - call-to-action buttons */
-    --accent-hover: #831843;          /* Darker wine red - button hover state */
-    --wine-red: #9D174D;              /* Wine red - buttons and CTAs */
-    --wine-red-dark: #831843;         /* Darker wine red - hover states */
-    --wine-red-light: #BE185D;        /* Lighter wine red - accents */
+    /* Colors - Clean Blue & White Theme */
+    --primary-color: #0D5C91;         /* Deep blue - primary brand color */
+    --primary-dark: #094A73;          /* Darker blue - hover states */
+    --secondary-color: #1ABC9C;       /* Teal - secondary accents */
+    --accent-color: #0D5C91;          /* Deep blue - call-to-action buttons */
+    --accent-hover: #094A73;          /* Darker blue - button hover state */
+    --wine-red: #0D5C91;              /* Deep blue - buttons and CTAs */
+    --wine-red-dark: #094A73;         /* Darker blue - hover states */
+    --wine-red-light: #1ABC9C;        /* Teal - accents */
     
     /* Enhanced Neutral Colors for Better Contrast */
     --dark-color: #1a1a1a;            /* Dark gray - headings, maximum contrast */
@@ -3182,14 +3182,15 @@ input, textarea, select {
 }
 
 .appointment-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: flex-start;
 }
 
 .appointment-info,
 .appointment-form {
-    flex: 1;
+    min-width: 0;
 }
 
 .appointment-form {
@@ -3209,10 +3210,10 @@ input, textarea, select {
 }
 
 .appointment-form h3 {
-    margin: -0.5rem -0.5rem 1.25rem -0.5rem;
-    padding: 0.75rem 1rem;
-    border-radius: 12px;
-    background: linear-gradient(135deg, rgba(157, 23, 77, 0.08), rgba(13, 92, 145, 0.06));
+    margin: -2rem -2rem 1.5rem -2rem;
+    padding: 1.25rem 2rem;
+    border-radius: 18px 18px 0 0;
+    background: linear-gradient(135deg, rgba(13, 92, 145, 0.08), rgba(26, 188, 156, 0.06));
 }
 
 .features-list {
