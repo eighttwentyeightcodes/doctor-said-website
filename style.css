@@ -3230,9 +3230,9 @@ input, textarea, select {
 
 .appointment-form {
     background: #ffffff;
-    border-radius: 0;
-    border: 1px solid var(--border-color);
-    box-shadow: none;
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 4px 20px rgba(20, 184, 166, 0.12);
     padding: 0;
 }
 
@@ -3248,10 +3248,10 @@ input, textarea, select {
     font-size: 1.5rem;
     font-weight: 700;
     margin: 0;
-    padding: 1.5rem 2rem;
-    border-radius: 0;
-    background: #fafafa;
-    border-bottom: 1px solid var(--border-color);
+    padding: 1.75rem 2rem 1.5rem;
+    border-radius: 16px 16px 0 0;
+    background: transparent;
+    border-bottom: none;
 }
 
 .appointment-form form {
@@ -3370,37 +3370,25 @@ input, textarea, select {
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0;
-    margin-bottom: 0;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.form-row .form-group {
-    margin-bottom: 0;
-    border-right: 1px solid var(--border-color);
-}
-
-.form-row .form-group:last-child {
-    border-right: none;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 .form-group {
-    margin-bottom: 0;
-    border-bottom: 1px solid var(--border-color);
-    padding: 0;
+    margin-bottom: 1rem;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 1rem 1.25rem;
-    border: none;
-    border-radius: 0;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
     font-family: var(--font-family-body);
     font-size: 0.95rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: transparent;
+    background: #fafafa;
     color: var(--dark-color);
     font-weight: 400;
 }
@@ -3408,9 +3396,9 @@ input, textarea, select {
 .appointment-form .form-group input,
 .appointment-form .form-group select,
 .appointment-form .form-group textarea {
-    background: transparent;
-    border-radius: 0;
-    border: none;
+    background: #fafafa;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
 }
 
 .appointment-form .form-group input::placeholder,
@@ -3432,7 +3420,9 @@ input, textarea, select {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    background: #fafafa;
+    background: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.08);
 }
 
 .form-group textarea {
@@ -3447,8 +3437,8 @@ input, textarea, select {
     cursor: pointer;
     font-size: 0.9rem;
     color: var(--text-color);
-    padding: 1rem 0;
-    margin-bottom: 0;
+    padding: 0.5rem 0;
+    margin-bottom: 1.5rem;
 }
 
 .checkbox-container input[type="checkbox"] {
@@ -3470,18 +3460,18 @@ input, textarea, select {
 .appointment-form .btn {
     background: var(--primary-color);
     border: none;
-    border-radius: 0;
-    padding: 1rem 2rem;
-    box-shadow: none;
+    border-radius: 8px;
+    padding: 0.875rem 2rem;
+    box-shadow: 0 2px 8px rgba(20, 184, 166, 0.2);
     font-size: 1rem;
     font-weight: 600;
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
 }
 
 .appointment-form .btn:hover {
     background: var(--primary-dark);
-    transform: none;
-    box-shadow: none;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
 }
 
 .form-note {
@@ -4522,7 +4512,7 @@ footer {
     
     .form-row {
         grid-template-columns: 1fr;
-        gap: 0;
+        gap: 1rem;
     }
     
     /* Footer responsive */
