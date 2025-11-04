@@ -397,9 +397,9 @@ button:focus,
     padding: 1.25rem 0; /* 20px */
     z-index: 1000; /* Higher than hero section */
     transition: all var(--transition-normal);
-    background-color: var(--light-color);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    background: transparent;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.0);
+    border-bottom: none;
 }
 
 /**
@@ -411,6 +411,19 @@ button:focus,
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+}
+
+/* White nav text before scroll for maximum contrast over hero */
+.navbar:not(.scrolled) .nav-link,
+.navbar:not(.scrolled) .nav-logo {
+    color: var(--white-text) !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+.navbar:not(.scrolled) .nav-link:hover,
+.navbar:not(.scrolled) .nav-link.active {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: var(--white-text) !important;
 }
 
 /* ===========================================
@@ -930,8 +943,9 @@ button:focus,
 
 .hero-buttons .btn-outline {
     background: transparent;
-    color: var(--wine-red);
-    border: 2px solid var(--wine-red);
+    color: var(--white-text);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.85);
     padding: 1rem 2rem;
 }
 
@@ -1581,6 +1595,8 @@ p {
     transition: all 0.2s ease-in-out;
     cursor: pointer;
     border: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    color: #fff;
     outline: none;
     display: inline-flex;
     align-items: center;
@@ -2538,7 +2554,7 @@ input, textarea, select {
     border-radius: 20px;
     box-shadow: var(--shadow-md);
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 2px solid var(--border-color);
+    border: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -2587,7 +2603,6 @@ input, textarea, select {
 
 .testimonial:hover {
     box-shadow: var(--shadow-lg);
-    border-color: var(--wine-red);
 }
 
 .testimonial-content {
@@ -2603,10 +2618,7 @@ input, textarea, select {
 }
 
 .testimonial-quote i {
-    position: absolute;
-    font-size: 2rem;
-    color: var(--wine-red);
-    opacity: 0.2;
+    display: none;
 }
 
 .testimonial-quote i:first-child {
@@ -2623,7 +2635,7 @@ input, textarea, select {
 .testimonial-quote p {
     font-size: 1.15rem;
     line-height: 1.8;
-    color: var(--text-color);
+    color: var(--dark-color);
     font-style: italic;
     margin: 1rem 0;
     text-align: center;
@@ -2634,7 +2646,22 @@ input, textarea, select {
     align-items: center;
     gap: 1.5rem;
     padding-top: 2rem;
-    border-top: 2px solid var(--light-gray);
+    border-top: none;
+}
+
+/* Remove underline line under section title in testimonials */
+#testimonials .section-title::after {
+    display: none;
+}
+
+/* Stronger legibility for key buttons */
+.hero-buttons .btn,
+.service-btn,
+.contact-form button,
+.testimonial-nav {
+    color: var(--white-text) !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.55) !important;
+    font-weight: 700;
 }
 
 .author-avatar {
@@ -2675,9 +2702,10 @@ input, textarea, select {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: white;
-    border: 2px solid var(--border-color);
-    color: var(--wine-red);
+    background: var(--wine-red);
+    border: 2px solid var(--wine-red);
+    color: var(--white-text);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     font-size: 1.2rem;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2688,7 +2716,7 @@ input, textarea, select {
 }
 
 .testimonial-nav:hover {
-    background: var(--wine-red);
+    background: var(--wine-red-dark);
     color: var(--white-text);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     transform: scale(1.1);
@@ -2701,8 +2729,8 @@ input, textarea, select {
 }
 
 .testimonial-nav:disabled:hover {
-    background: white;
-    color: var(--wine-red);
+    background: var(--wine-red);
+    color: var(--white-text);
     transform: scale(1);
 }
 
@@ -2731,9 +2759,10 @@ input, textarea, select {
 
 .indicator.active {
     background: var(--wine-red);
-    width: 30px;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(157, 23, 77, 0.4);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(157, 23, 77, 0.2);
 }
 
 /* Testimonial animations */
