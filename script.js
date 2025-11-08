@@ -141,6 +141,14 @@
             });
         });
     }
+
+    // Add fade-right class to service buttons so ScrollReveal animates them
+    function setupServiceButtonsScrollAnimation() {
+        const buttons = document.querySelectorAll('#services .service-card .service-btn');
+        buttons.forEach(btn => {
+            btn.classList.add('fade-right');
+        });
+    }
     
     // Placeholder functions
     function setupForms() {
@@ -677,13 +685,34 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            const name = form.elements['name'] ? form.elements['name'].value : '';
-            const phone = form.elements['phone'] ? form.elements['phone'].value : '';
-            const email = form.elements['email'] ? form.elements['email'].value : '';
+            // Honor HTML5 required validations
+            if (typeof form.reportValidity === 'function' && !form.reportValidity()) {
+                return;
+            }
+
+            const name = form.elements['name'] ? form.elements['name'].value.trim() : '';
+            const phone = form.elements['phone'] ? form.elements['phone'].value.trim() : '';
+            const email = form.elements['email'] ? form.elements['email'].value.trim() : '';
             const date = form.elements['date'] ? form.elements['date'].value : '';
+            const time = form.elements['time'] ? form.elements['time'].value : '';
+            const contactMethod = form.elements['contact-method'] ? form.elements['contact-method'].value : '';
             const service = form.elements['service'] ? form.elements['service'].value : '';
-            const message = form.elements['message'] ? form.elements['message'].value : '';
+            const message = form.elements['message'] ? form.elements['message'].value.trim() : '';
             const isNew = form.elements['new-patient'] && form.elements['new-patient'].checked ? 'Yes' : 'No';
+            const consent = form.elements['consent'] ? form.elements['consent'].checked : false;
+
+            if (!consent) {
+                alert('Please agree to the consent to proceed.');
+                return;
+            }
+
+            // Submit state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn ? submitBtn.textContent : '';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Opening WhatsApp…';
+            }
 
             // Use clinic WhatsApp number from the site
             const waNumber = '254703553000';
@@ -692,15 +721,24 @@
                 `Name: ${name}\n` +
                 `Phone: ${phone}\n` +
                 `Email: ${email}\n` +
-                `Preferred Date: ${date}\n` +
+                `Preferred Date: ${date}${time ? ` at ${time}` : ''}\n` +
                 `Service: ${service}\n` +
+                `Preferred Contact: ${contactMethod || 'Any'}\n` +
                 `New Patient: ${isNew}\n` +
-                `Message: ${message}`
+                `Message: ${message || 'N/A'}`
             );
 
             const waUrl = `https://wa.me/${waNumber}?text=${text}`;
             window.open(waUrl, '_blank');
-            form.reset();
+
+            // Reset UI state after a moment
+            setTimeout(() => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText || 'Book Appointment';
+                }
+                form.reset();
+            }, 400);
         });
     }
     // Setup service cards functionality
@@ -759,6 +797,8 @@
         try { setupStickyNav(); } catch (e) {}
         try { setupActiveNavLinks(); } catch (e) {}
         try { setupSmoothScrolling(); } catch (e) {}
+        // Ensure buttons have animation class before scroll reveal initial check
+        try { setupServiceButtonsScrollAnimation(); } catch (e) {}
         try { setupScrollReveal(); } catch (e) {}
         try { setupScrollIndicator(); } catch (e) {}
         try { setupContactForm(); } catch (e) {}
