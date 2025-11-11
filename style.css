@@ -1,37 +1,67 @@
+/* ============================================================================
+   CRITICAL MOBILE-FIRST RESET
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ============================================================================
+   CSS VARIABLES
+   ========================================================================== */
+
 :root {
-    /* Colors - Updated Palette */
-    --primary-color: #3d5a80;         /* Bedazzled Blue - primary */
-    --primary-dark: #293241;          /* Dark Indigo - dark variant */
-    --secondary-color: #98c1d9;       /* Light Blue - secondary accents */
-    --accent-color: #ee6c4d;          /* Persimmon - CTAs */
-    --accent-hover: #d85b3d;          /* Darker Persimmon - hover */
-    --wine-red: #ee6c4d;              /* Repurposed for CTAs */
-    --wine-red-dark: #d85b3d;         /* CTA hover */
-    --wine-red-light: #f19c86;        /* CTA light accent */
+    /* Minimalist White & Green Color Palette */
+    --primary-color: #10B981;         /* Fresh Green - primary brand */
+    --primary-dark: #059669;          /* Deep Green - dark variant */
+    --secondary-color: #34D399;       /* Light Green - secondary accents */
+    --accent-color: #10B981;          /* Fresh Green - CTAs */
+    --accent-hover: #059669;          /* Deep Green - hover */
+    --wine-red: #10B981;              /* Green for CTAs */
+    --wine-red-dark: #059669;         /* Deep Green for hover */
+    --wine-red-light: #34D399;        /* Light Green accent */
     
-    /* Neutrals aligned to palette */
-    --dark-color: #293241;            /* Deep Indigo - headings */
-    --text-color: #3d5a80;            /* Primary Blue - body text */
-    --light-color: #e0fbfc;           /* Light Aqua - page background */
-    --white-text: #ffffff;            /* Pure white for text on dark backgrounds */
-    --light-gray: #e0fbfc;            /* Light section backgrounds */
-    --border-color: #98c1d9;          /* Soft blue borders */
-    --muted-text: #98c1d9;            /* Muted secondary text */
+    /* Minimalist Neutrals */
+    --dark-color: #1F2937;            /* Dark Gray - headings */
+    --text-color: #4B5563;            /* Medium Gray - body text */
+    --light-color: #FFFFFF;           /* Pure White - page background */
+    --white-text: #FFFFFF;            /* Pure White for text on dark backgrounds */
+    --light-gray: #F9FAFB;            /* Off-white - section backgrounds */
+    --border-color: #E5E7EB;          /* Light Gray borders */
+    --muted-text: #6B7280;            /* Gray secondary text */
     
     /* RGB helpers derived from palette */
-    --primary-rgb: 61, 90, 128;
-    --dark-rgb: 41, 50, 65;
-    --secondary-rgb: 152, 193, 217;
-    --accent-rgb: 238, 108, 77;
+    --primary-rgb: 16, 185, 129;
+    --dark-rgb: 31, 41, 55;
+    --secondary-rgb: 52, 211, 153;
+    --accent-rgb: 16, 185, 129;
     
-    /* Status Colors */
-    --success-color: #38a169;         /* Green - success messages */
-    --error-color: #e53e3e;           /* Red - error messages */
-    --warning-color: #d69e2e;         /* Orange - warnings */
-    --info-color: #3182ce;            /* Blue - informational */
+    /* Status Colors - Green Theme */
+    --success-color: #10B981;         /* Green - success messages */
+    --error-color: #EF4444;           /* Red - error messages */
+    --warning-color: #F59E0B;         /* Amber - warnings */
+    --info-color: #10B981;            /* Green - informational */
 
-    /* Enhanced Typography */
-    --font-family-headings: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* Elegant Typography Stack */
+    --font-family-headings: 'Playfair Display', Georgia, serif;
     --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-family-elegant: 'Playfair Display', Georgia, serif;
     --font-family-calligraphy: 'Cormorant Garamond', Georgia, serif;
@@ -352,10 +382,11 @@ button:focus,
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--wine-red), var(--wine-red-light));
+    width: 0;
+    height: 0;
+    background: transparent;
     border-radius: 2px;
+    display: none;
 }
 
 .section-subtitle {
@@ -367,6 +398,7 @@ button:focus,
     line-height: 1.7;
     font-weight: 600;
     padding: 0 var(--spacing-md);
+    font-family: var(--font-family-body);
 }
 
 /* Text Utilities */
@@ -421,17 +453,20 @@ button:focus,
     -webkit-backdrop-filter: blur(10px);
 }
 
-/* Blue nav text for clear contrast on light background */
+/* Black nav text with shadows for clear contrast */
 .navbar:not(.scrolled) .nav-link,
 .navbar:not(.scrolled) .nav-logo {
-    color: var(--primary-color) !important;
-    text-shadow: none;
+    color: #000000 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .navbar:not(.scrolled) .nav-link:hover,
 .navbar:not(.scrolled) .nav-link.active {
-    background: rgba(var(--primary-rgb), 0.08) !important;
-    color: var(--primary-color) !important;
+    background: rgba(16, 185, 129, 0.1) !important;
+    color: #000000 !important;
+    transform: translateY(-2px);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
 }
 
 /* Keep the CTA text white for contrast */
@@ -443,7 +478,7 @@ button:focus,
    Services Section
    =========================================== */
 #services {
-    padding: 6rem 0;
+    padding: 0 0 6rem;
     position: relative;
     overflow: hidden;
     background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
@@ -452,6 +487,11 @@ button:focus,
 #services .container {
     position: relative;
     z-index: 2;
+}
+
+#services .section-title,
+#services .section-subtitle {
+    color: #000000;
 }
 
 .services-parallax-bg {
@@ -520,8 +560,9 @@ button:focus,
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
+    width: 0;
+    height: 0;
+    display: none;
     background: var(--primary-color);
     border-radius: 3px;
 }
@@ -637,18 +678,46 @@ button:focus,
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
-    background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
-    padding: 6rem 0;
+    background: var(--light-color);
+    padding: 8rem 2rem;
 }
 
-.hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.15) 0%, rgba(var(--primary-rgb), 0.10) 100%);
-    z-index: 2;
-    pointer-events: none;
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    color: var(--text-color);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .hero-background-elements {
@@ -968,34 +1037,37 @@ button:focus,
 }
 
 .hero-buttons .btn-primary {
-    background: var(--wine-red);
+    background: var(--primary-color);
     color: var(--white-text);
-    text-shadow: 0 1px 2px rgba(var(--dark-rgb), 0.2);
-    border: 2px solid var(--wine-red);
+    border: 2px solid var(--primary-color);
     padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 .hero-buttons .btn-primary:hover {
-    background: var(--wine-red-dark);
-    border-color: var(--wine-red-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.4);
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3);
 }
 
 .hero-buttons .btn-outline {
     background: transparent;
-    color: var(--white-text);
-    text-shadow: 0 1px 2px rgba(var(--dark-rgb), 0.3);
-    border: 2px solid rgba(255, 255, 255, 0.85);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
     padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 .hero-buttons .btn-outline:hover {
-    background: var(--wine-red);
+    background: var(--primary-color);
     color: var(--white-text);
-    text-shadow: 0 1px 2px rgba(var(--dark-rgb), 0.2);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3);
 }
 
 .hero-image-container {
@@ -1717,7 +1789,7 @@ input, textarea, select {
     border-bottom: 1px solid rgba(var(--primary-rgb), 0.15);
     padding: 1rem 0;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: var(--z-modal) !important;
+    z-index: 9999 !important;
     box-shadow: 0 2px 20px rgba(var(--primary-rgb), 0.08) !important;
 }
 
@@ -1739,14 +1811,18 @@ input, textarea, select {
 .nav-logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-color) !important;
+    color: #000000 !important;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     z-index: inherit;
+    font-family: var(--font-family-body);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .nav-logo:hover {
-    color: var(--primary-dark) !important;
+    color: #000000 !important;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
 }
 
 .nav-menu {
@@ -1767,22 +1843,27 @@ input, textarea, select {
 }
 
 .nav-link {
-    color: var(--primary-color) !important;
+    color: #000000 !important;
     text-decoration: none;
     font-weight: 500;
     padding: 0.5rem 1rem;
     border-radius: var(--border-radius-full);
-    transition: color 0.3s ease, background 0.3s ease;
+    transition: all 0.3s ease;
     position: relative;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-family: var(--font-family-body);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--primary-color) !important;
-    background: rgba(var(--primary-rgb), 0.08) !important;
+    color: #000000 !important;
+    background: rgba(16, 185, 129, 0.1) !important;
+    transform: translateY(-2px);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
 }
 
 .nav-link.active::after {
@@ -1858,8 +1939,8 @@ input, textarea, select {
 
 .menu-line {
     width: 100%;
-    height: 2px;
-    background: var(--text-color);
+    height: 3px;
+    background: var(--primary-color);
     border-radius: 2px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -2592,9 +2673,14 @@ input, textarea, select {
     border-radius: 10px;
     font-family: var(--font-family-body);
     font-size: 1rem;
-    color: var(--dark-color);
+    color: #000000;
     background: #ffffff;
     transition: all 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #666666;
 }
 
 .contact-form textarea {
@@ -2640,7 +2726,7 @@ input, textarea, select {
 }
 
 #testimonials.section {
-    background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
     padding: 6rem 0;
 }
 
@@ -2652,7 +2738,7 @@ input, textarea, select {
 }
 
 .testimonial {
-    background: white;
+    background: var(--accent-color);
     padding: 3rem 2.5rem;
     border-radius: 20px;
     box-shadow: var(--shadow-md);
@@ -2738,7 +2824,7 @@ input, textarea, select {
 .testimonial-quote p {
     font-size: 1.15rem;
     line-height: 1.8;
-    color: var(--dark-color);
+    color: var(--white-text);
     font-style: italic;
     margin: 1rem 0;
     text-align: center;
@@ -2752,9 +2838,36 @@ input, textarea, select {
     border-top: none;
 }
 
+.testimonial-author h4,
+.testimonial-author span {
+    color: var(--white-text);
+}
+
+.testimonial-author .author-rating i {
+    color: #ffd700;
+}
+
+.testimonial-author .author-avatar {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white-text);
+    font-size: 1.5rem;
+}
+
 /* Remove underline line under section title in testimonials */
 #testimonials .section-title::after {
     display: none;
+}
+
+/* White text for testimonials section on blue background */
+#testimonials .section-title,
+#testimonials .section-subtitle {
+    color: var(--white-text);
 }
 
 /* Stronger legibility for key buttons */
@@ -2766,18 +2879,43 @@ input, textarea, select {
     font-weight: 700;
 }
 .testimonial-nav {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    border-radius: 50%;
+    display: none;
+}
+
+.testimonial-controls {
     display: flex;
-    align-items: center;
     justify-content: center;
-    color: var(--white-text);
-    text-shadow: 0 2px 4px rgba(var(--primary-rgb), 0.3);
-    font-size: 1.5rem;
-    flex-shrink: 0;
-    box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.testimonial-indicators {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.indicator:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.2);
+}
+
+.indicator.active {
+    background: var(--white-text);
+    width: 32px;
+    border-radius: 6px;
 }
 
 .author-rating {
@@ -2786,36 +2924,300 @@ input, textarea, select {
 }
 
 /* Contact Section Enhancements */
-.contact-method {
+#contact .section-title,
+#contact .section-subtitle {
+    color: #000000;
+}
+
+.contact-info-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+}
+
+.contact-info-card h3 {
+    color: #000000;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.contact-item {
     display: flex;
     align-items: flex-start;
-    gap: 1.25rem;
-    padding: 1.75rem;
-    background: #ffffff;
-    border-radius: 12px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.08);
-    border: 1px solid var(--border-color);
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #e0e0e0;
 }
 
-.contact-method:hover {
-    box-shadow: 0 8px 24px rgba(var(--primary-rgb), 0.15);
+.contact-item:last-of-type {
+    border-bottom: none;
 }
 
-.contact-info .social-links a {
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-icon i {
+    color: #ffffff;
+    font-size: 1.25rem;
+}
+
+.contact-details h4 {
+    color: #000000;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+}
+
+.contact-details p {
+    color: #000000;
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.contact-details a {
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+    color: var(--primary-color);
+}
+
+.contact-info-card .social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.contact-info-card .social-links a {
+    width: 44px;
     height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(var(--primary-rgb), 0.1);
-    border-radius: 10px;
-    color: var(--primary-color);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid var(--border-color);
+    background: var(--primary-color);
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.contact-info-card .social-links a:hover {
+    background: var(--accent-color);
+    transform: translateY(-3px);
 }
 
 .appointment-form {
-    min-width: 0;
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-form h3 {
+    color: #000000;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 0;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #000000;
+    background: #ffffff;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    min-height: 48px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #666666;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(61, 90, 128, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23000' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.input-hint {
+    display: block;
+    color: #666666;
+    font-size: 0.75rem;
+    margin-top: 0.4rem;
+    line-height: 1.2;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: #000000;
+    cursor: pointer;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding: 0.5rem 0;
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.form-note {
+    color: #ffffff;
+    font-size: 0.875rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.form-message {
+    display: none;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    text-align: center;
+    font-weight: 500;
+    animation: slideDown 0.3s ease;
+}
+
+.form-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-block {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+/* Appointment Form Button Styling */
+.appointment-form .btn-primary {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #ff8566 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(238, 108, 77, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.appointment-form .btn-primary:hover {
+    background: linear-gradient(135deg, #ff8566 0%, var(--accent-color) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(238, 108, 77, 0.5);
+}
+
+.appointment-form .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(238, 108, 77, 0.3);
+}
+
+.appointment-form .btn-primary:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .appointment-form {
+        padding: 2rem 1.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .appointment-form .btn-primary {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
 }
 
 .appointment-card {
@@ -2826,30 +3228,180 @@ input, textarea, select {
     padding: 0;
 }
 
-.appointment-info h3 {
-    color: var(--dark-color);
+.appointment-info {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
 }
 
-.features-list {
+.appointment-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(50%, -50%);
+}
+
+.info-header {
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.info-header h3 {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.info-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 400;
+}
+
+.credentials-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.credential-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.25rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.credential-card:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    background: #ffffff;
+}
+
+.credential-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #ff8566 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(238, 108, 77, 0.3);
+}
+
+.credential-icon i {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.credential-content {
+    flex: 1;
+}
+
+.credential-content h4 {
+    color: var(--primary-dark);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+    line-height: 1.3;
+}
+
+.credential-content p {
+    color: #666666;
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.emergency-contact,
+.office-hours {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+.emergency-contact h4,
+.office-hours h4 {
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.emergency-contact h4::before {
+    content: '🚨';
+    font-size: 1.2rem;
+}
+
+.office-hours h4::before {
+    content: '🕐';
+    font-size: 1.2rem;
+}
+
+.emergency-contact p,
+.office-hours ul {
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+.emergency-contact a,
+.office-hours a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.emergency-contact a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.office-hours ul {
     list-style: none;
     padding: 0;
-    margin: 0;
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.08);
-    border: 1px solid var(--border-color);
 }
 
-.features-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding: 0.75rem 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: var(--text-color);
-    font-weight: 500;
+.office-hours li {
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.office-hours li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .service-icon {
@@ -2866,6 +3418,13 @@ input, textarea, select {
     font-size: 2rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.2);
+}
+
+.service-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .service-card:hover .service-icon {
@@ -3110,6 +3669,18 @@ footer {
     margin: 0.5rem 0;
 }
 
+.footer-section p a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.footer-section p a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 2rem;
@@ -3312,7 +3883,7 @@ footer {
     height: 100vh;
     background: white;
     box-shadow: -5px 0 25px rgba(var(--primary-rgb), 0.1);
-    z-index: 1000;
+    z-index: 10000;
     transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 5rem 2rem 2rem;
         overflow-y: auto;
@@ -3401,6 +3972,44 @@ footer {
     .appointment-container {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    .appointment-info {
+        padding: 2rem 1.5rem;
+    }
+    
+    .info-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .info-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .credentials-grid {
+        gap: 0.875rem;
+    }
+    
+    .credential-card {
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .credential-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .credential-icon i {
+        font-size: 1.25rem;
+    }
+    
+    .credential-content h4 {
+        font-size: 0.95rem;
+    }
+    
+    .credential-content p {
+        font-size: 0.85rem;
     }
     
     .form-row {
@@ -3583,8 +4192,12 @@ footer {
     animation: fadeInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
 }
 
-/* Appointment Section Animations */
+/* Appointment Section */
 .appointment-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
     animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
@@ -4132,5 +4745,776 @@ footer {
 @media print {
     .bottom-nav {
         display: none !important;
+    }
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    animation: whatsappPulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-float i {
+    animation: whatsappShake 1s ease-in-out infinite;
+}
+
+.whatsapp-tooltip {
+    position: absolute;
+    right: 70px;
+    background: var(--primary-dark);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    font-weight: 500;
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+}
+
+.whatsapp-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 8px solid transparent;
+    border-left-color: var(--primary-dark);
+}
+
+@keyframes whatsappPulse {
+    0%, 100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7);
+    }
+}
+
+@keyframes whatsappShake {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: rotate(-10deg);
+    }
+    20%, 40%, 60%, 80% {
+        transform: rotate(10deg);
+    }
+}
+
+/* Responsive adjustments for WhatsApp */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        font-size: 1.75rem;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-tooltip {
+        display: none;
+    }
+}
+
+@media print {
+    .whatsapp-float {
+        display: none !important;
+    }
+}
+
+/* ============================================================================
+   COMPREHENSIVE MOBILE RESPONSIVENESS
+   ========================================================================== */
+
+/* Tablets and Small Laptops (1024px and below) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 2rem;
+    }
+    
+    .section {
+        padding: 4rem 0;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .appointment-container,
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+    /* Typography */
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Container */
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    /* Hero Section - Ensure background images work on tablets */
+    .hero {
+        background-attachment: scroll !important;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+    
+    .hero-text {
+        max-width: 100%;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+    }
+    
+    /* About Section */
+    .about-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .about-image {
+        max-width: 100%;
+    }
+    
+    .about-highlights {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Services */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .service-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    /* Testimonials */
+    .testimonial {
+        padding: 2rem 1.5rem;
+    }
+    
+    /* Contact & Appointment */
+    .contact-container,
+    .appointment-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-info-card,
+    .appointment-info,
+    .appointment-form {
+        padding: 2rem 1.5rem;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Mobile Phones (576px and below) */
+@media (max-width: 576px) {
+    /* Typography */
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    /* Container */
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .section {
+        padding: 3rem 0;
+    }
+    
+    /* Hero - Mobile background optimization */
+    .hero {
+        min-height: auto;
+        padding: 2rem 0;
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    /* Navigation */
+    .nav-logo {
+        font-size: 1rem;
+    }
+    
+    .mobile-menu-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* Service Cards */
+    .service-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .service-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .service-icon i,
+    .service-icon img {
+        font-size: 1.5rem;
+    }
+    
+    /* Credentials Grid */
+    .credentials-grid {
+        gap: 0.75rem;
+    }
+    
+    .credential-card {
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .credential-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .credential-icon i {
+        font-size: 1.25rem;
+    }
+    
+    .credential-content h4 {
+        font-size: 0.9rem;
+    }
+    
+    .credential-content p {
+        font-size: 0.8rem;
+    }
+    
+    /* Forms */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.75rem;
+        font-size: 0.95rem;
+    }
+    
+    .appointment-form .btn-primary,
+    .contact-form button {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    /* Contact Info Card */
+    .contact-info-card {
+        padding: 1.5rem;
+    }
+    
+    .contact-item {
+        padding: 1rem 0;
+        gap: 1rem;
+    }
+    
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .contact-icon i {
+        font-size: 1rem;
+    }
+    
+    .contact-details h4 {
+        font-size: 0.95rem;
+    }
+    
+    .contact-details p {
+        font-size: 0.85rem;
+    }
+    
+    /* Testimonials */
+    .testimonial {
+        padding: 1.5rem 1rem;
+        min-height: 250px;
+    }
+    
+    .testimonial-quote p {
+        font-size: 0.95rem;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 2rem 0 1rem;
+    }
+    
+    .footer-section h3 {
+        font-size: 1.1rem;
+    }
+    
+    .footer-section p,
+    .footer-section ul li {
+        font-size: 0.9rem;
+    }
+}
+
+/* Small Mobile Phones (480px and below) */
+@media (max-width: 480px) {
+    /* Extra small adjustments */
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+    
+    .container {
+        padding: 0 0.75rem;
+    }
+    
+    /* Buttons */
+    .btn,
+    .cta-button {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Cards */
+    .service-card,
+    .testimonial,
+    .contact-info-card,
+    .appointment-info {
+        padding: 1.25rem 1rem;
+    }
+    
+    /* WhatsApp Button */
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* Landscape Mode Optimization */
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 2rem 0;
+    }
+    
+    .section {
+        padding: 2rem 0;
+    }
+    
+    .nav-links.active {
+        height: 100vh;
+        overflow-y: auto;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Larger touch targets */
+    .btn,
+    .cta-button,
+    button,
+    a {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Remove hover effects on touch devices */
+    .service-card:hover,
+    .testimonial:hover,
+    .credential-card:hover {
+        transform: none;
+    }
+    
+    /* Adjust interactive elements */
+    input,
+    select,
+    textarea {
+        font-size: 16px !important; /* Prevents zoom on iOS */
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Sharper borders and shadows */
+    .service-card,
+    .testimonial,
+    .contact-info-card,
+    .appointment-info {
+        border-width: 0.5px;
+    }
+}
+
+/* ============================================================================
+   CREDENTIALS & MEMBERSHIPS - ORGANIZATION LOGOS SLIDER
+   ========================================================================== */
+
+.credentials-section {
+    margin-top: 4rem;
+    margin-bottom: 0;
+    padding: 4rem 0 6rem;
+    background: #ffffff;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.credentials-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.credentials-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666666;
+    margin-bottom: 3rem;
+    font-weight: 400;
+}
+
+.logos-slider {
+    overflow: hidden;
+    position: relative;
+    padding: 2rem 0;
+}
+
+.logos-slider::before,
+.logos-slider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.logos-slider::before {
+    left: 0;
+    background: linear-gradient(to right, #ffffff, transparent);
+}
+
+.logos-slider::after {
+    right: 0;
+    background: linear-gradient(to left, #ffffff, transparent);
+}
+
+.logos-track {
+    display: flex;
+    gap: 2.5rem;
+    animation: slideLogos 25s linear infinite;
+    width: fit-content;
+}
+
+.logos-track:hover {
+    animation-play-state: paused;
+}
+
+.org-logo-card {
+    flex-shrink: 0;
+    width: 280px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e8e8e8;
+    transition: all 0.3s ease;
+}
+
+.org-logo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(61, 90, 128, 0.2);
+    border-color: var(--primary-color);
+}
+
+.org-logo-card.highlight {
+    border-color: var(--accent-color);
+    background: linear-gradient(135deg, #fff9f7 0%, #ffffff 100%);
+}
+
+.org-logo-card.highlight:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 8px 30px rgba(238, 108, 77, 0.3);
+}
+
+.logo-badge {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 25px rgba(61, 90, 128, 0.3);
+    position: relative;
+}
+
+.org-logo-card.highlight .logo-badge {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #ff8566 100%);
+    box-shadow: 0 6px 25px rgba(238, 108, 77, 0.4);
+}
+
+.logo-badge::after {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.logo-badge i {
+    font-size: 3.5rem;
+    color: #ffffff;
+    z-index: 1;
+}
+
+.org-logo-card h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin: 0 0 0.75rem 0;
+    line-height: 1.2;
+}
+
+.org-logo-card.highlight h4 {
+    color: var(--accent-color);
+}
+
+.org-logo-card p {
+    font-size: 0.95rem;
+    color: #666666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+@keyframes slideLogos {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* About Actions Styling */
+.about-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.about-actions .btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.about-actions .btn-primary {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #ff8566 100%);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 15px rgba(238, 108, 77, 0.3);
+}
+
+.about-actions .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(238, 108, 77, 0.4);
+}
+
+.about-actions .btn-outline {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.about-actions .btn-outline:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Responsive Organization Logos */
+@media (max-width: 768px) {
+    .credentials-section {
+        margin-top: 3rem;
+        padding: 3rem 0 4rem;
+    }
+    
+    .credentials-title {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .credentials-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .logos-slider::before,
+    .logos-slider::after {
+        width: 80px;
+    }
+    
+    .org-logo-card {
+        width: 240px;
+        padding: 2rem 1.5rem;
+    }
+    
+    .logo-badge {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .logo-badge i {
+        font-size: 3rem;
+    }
+    
+    .org-logo-card h4 {
+        font-size: 1.15rem;
+    }
+    
+    .org-logo-card p {
+        font-size: 0.9rem;
+    }
+    
+    .about-actions {
+        flex-direction: column;
+    }
+    
+    .about-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .credentials-section {
+        padding: 2rem 0 3rem;
+    }
+    
+    .logos-slider::before,
+    .logos-slider::after {
+        width: 50px;
+    }
+    
+    .logos-track {
+        gap: 2rem;
+    }
+    
+    .org-logo-card {
+        width: 220px;
+        padding: 1.75rem 1.25rem;
+    }
+    
+    .logo-badge {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .logo-badge i {
+        font-size: 2.5rem;
+    }
+    
+    .org-logo-card h4 {
+        font-size: 1.1rem;
+    }
+    
+    .org-logo-card p {
+        font-size: 0.85rem;
     }
 }

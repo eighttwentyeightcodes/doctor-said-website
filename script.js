@@ -667,10 +667,12 @@
         }
     }
 
-    // Appointment Form Submission (WhatsApp)
+    // Appointment Form Submission (Backend with Email & WhatsApp)
     function setupAppointmentForm() {
         const form = document.getElementById('appointmentForm');
         if (!form) return;
+
+        const messageDiv = document.getElementById('formMessage');
 
         // Ensure date input minimum is today
         const dateInput = form.querySelector('input[name="date"]');
@@ -690,19 +692,9 @@
                 return;
             }
 
-            const name = form.elements['name'] ? form.elements['name'].value.trim() : '';
-            const phone = form.elements['phone'] ? form.elements['phone'].value.trim() : '';
-            const email = form.elements['email'] ? form.elements['email'].value.trim() : '';
-            const date = form.elements['date'] ? form.elements['date'].value : '';
-            const time = form.elements['time'] ? form.elements['time'].value : '';
-            const contactMethod = form.elements['contact-method'] ? form.elements['contact-method'].value : '';
-            const service = form.elements['service'] ? form.elements['service'].value : '';
-            const message = form.elements['message'] ? form.elements['message'].value.trim() : '';
-            const isNew = form.elements['new-patient'] && form.elements['new-patient'].checked ? 'Yes' : 'No';
             const consent = form.elements['consent'] ? form.elements['consent'].checked : false;
-
             if (!consent) {
-                alert('Please agree to the consent to proceed.');
+                showMessage('Please agree to the consent to proceed.', 'error');
                 return;
             }
 
@@ -711,35 +703,57 @@
             const originalText = submitBtn ? submitBtn.textContent : '';
             if (submitBtn) {
                 submitBtn.disabled = true;
-                submitBtn.textContent = 'Opening WhatsApp…';
+                submitBtn.textContent = 'Submitting...';
             }
 
-            // Use clinic WhatsApp number from the site
-            const waNumber = '254703553000';
-            const text = encodeURIComponent(
-                `Appointment Request:\n` +
-                `Name: ${name}\n` +
-                `Phone: ${phone}\n` +
-                `Email: ${email}\n` +
-                `Preferred Date: ${date}${time ? ` at ${time}` : ''}\n` +
-                `Service: ${service}\n` +
-                `Preferred Contact: ${contactMethod || 'Any'}\n` +
-                `New Patient: ${isNew}\n` +
-                `Message: ${message || 'N/A'}`
-            );
+            // Collect form data
+            const formData = new FormData(form);
 
-            const waUrl = `https://wa.me/${waNumber}?text=${text}`;
-            window.open(waUrl, '_blank');
-
-            // Reset UI state after a moment
-            setTimeout(() => {
+            // Send via AJAX
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showMessage(data.message, 'success');
+                    form.reset();
+                    
+                    // Scroll to message
+                    if (messageDiv) {
+                        messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                } else {
+                    showMessage(data.message, 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showMessage('There was an error submitting your request. Please try calling us directly at +254 703 553 000.', 'error');
+            })
+            .finally(() => {
                 if (submitBtn) {
                     submitBtn.disabled = false;
                     submitBtn.textContent = originalText || 'Book Appointment';
                 }
-                form.reset();
-            }, 400);
+            });
         });
+
+        function showMessage(message, type) {
+            if (!messageDiv) return;
+            
+            messageDiv.textContent = message;
+            messageDiv.className = 'form-message ' + type;
+            messageDiv.style.display = 'block';
+            
+            // Auto-hide success messages after 8 seconds
+            if (type === 'success') {
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 8000);
+            }
+        }
     }
     // Setup service cards functionality
     function setupServiceCards() {
@@ -1239,6 +1253,38 @@ function setupTestimonialsCarouselEnhanced() {
     console.log('Testimonials carousel initialized successfully');
 }
 
+// Scroll animation for about image
+function setupScrollAnimation() {
+    const scrollElements = document.querySelectorAll('[data-scroll-animate]');
+    
+    const elementInView = (el, offset = 100) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (
+            elementTop <= 
+            (window.innerHeight || document.documentElement.clientHeight) - offset
+        );
+    };
+    
+    const displayScrollElement = (element) => {
+        element.classList.add('animate-in');
+    };
+    
+    const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+            if (elementInView(el, 100)) {
+                displayScrollElement(el);
+            }
+        });
+    };
+    
+    window.addEventListener('scroll', () => {
+        handleScrollAnimation();
+    });
+    
+    // Check on load
+    handleScrollAnimation();
+}
+
 // Initialize all features
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM Content Loaded - Initializing features...');
@@ -1246,5 +1292,8 @@ document.addEventListener('DOMContentLoaded', function() {
     setupParallaxScrolling();
     setupServiceCardsAnimation();
     setupScrollTextAnimations();
+    setupAppointmentForm();
+    setupServiceCards();
+    setupScrollAnimation();
     console.log('All features initialized');
 });

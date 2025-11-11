@@ -30,16 +30,22 @@
    SERVICE PAGES - DARKER BACKGROUNDS FOR BETTER TEXT VISIBILITY
    ========================================================================== */
 
-/* Service page hero with darker gradient overlay */
+/* Service page hero with soft gradient overlay */
 .service-hero {
-    background: linear-gradient(135deg, rgba(41, 50, 65, 0.92) 0%, rgba(61, 90, 128, 0.88) 100%),
-                url('../Images/home_hero_optimized.jpg') center/cover;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.95) 0%, rgba(5, 150, 105, 0.95) 100%),
+                url('../Images/service-hero-bg.jpg') center/cover no-repeat;
+    background-blend-mode: overlay;
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
     min-height: 60vh;
     display: flex;
     align-items: center;
-    padding: 8rem 0 4rem;
+    justify-content: center;
     position: relative;
     color: var(--white-text);
+    text-align: center;
+    padding: 8rem 2rem 6rem;
 }
 
 .service-hero::before {
@@ -147,6 +153,13 @@
     font-size: 5rem;
     color: var(--white-text);
     text-shadow: 0 4px 12px rgba(var(--dark-rgb), 0.3);
+}
+
+.service-icon-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 /* Service details section with better contrast */
@@ -323,7 +336,7 @@
 }
 
 /* ==========================================================================
-   MODERNIZED ABOUT SECTION WITH IMPROVED IMAGE POSITIONING
+   ABOUT SECTION
    ========================================================================== */
 
 .about-content {
@@ -336,34 +349,18 @@
 
 .about-image-wrapper {
     position: relative;
-    border-radius: 24px;
+    border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(var(--primary-rgb), 0.2);
-}
-
-.about-image-wrapper::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(135deg, transparent 0%, rgba(var(--secondary-rgb), 0.15) 50%, transparent 100%);
-    animation: shimmer 3s ease-in-out infinite;
-    pointer-events: none;
-    z-index: 2;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    aspect-ratio: 1 / 1;
 }
 
 .about-image {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
-    border-radius: 24px;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.about-image-wrapper:hover .about-image {
-    transform: scale(1.03);
+    border-radius: 50%;
 }
 
 .about-image-badge {
@@ -401,22 +398,22 @@
 .summary-text {
     font-size: 1.1rem;
     line-height: 1.9;
-    color: var(--text-color);
+    color: #000000;
     margin-bottom: 2rem;
 }
 
 #about {
-    background: #3d5a80;
+    background: #FFFFFF !important;
 }
 
 #about .section-title,
 #about .section-subtitle {
-    color: var(--white-text);
+    color: #000000;
 }
 
 #about .about-text,
 #about .summary-text {
-    color: var(--white-text);
+    color: #000000;
 }
 
 #about .about-actions .btn {
@@ -562,7 +559,7 @@
 }
 
 #appointment {
-    background: linear-gradient(135deg, rgba(41, 50, 65, 0.97) 0%, rgba(61, 90, 128, 0.92) 100%) !important;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.95) 0%, rgba(5, 150, 105, 0.95) 100%) !important;
     position: relative;
     color: var(--white-text);
 }
@@ -668,4 +665,21 @@
 
 @media (max-width: 1024px) {
     .appointment-container { grid-template-columns: 1fr; }
+}
+
+/* Mobile background optimization for service pages */
+@media (max-width: 768px) {
+    .service-hero {
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        background-position: center !important;
+        min-height: 50vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-hero {
+        min-height: 40vh;
+        padding: 5rem 0 2.5rem;
+    }
 }
